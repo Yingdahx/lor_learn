@@ -14,6 +14,6 @@ public class Apply {
 
     @GetMapping("/apply")
     public String getApplyPage() {
-        return "index";
+        return "forms";
     }
 }
