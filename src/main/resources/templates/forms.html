@@ -374,7 +374,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <form role="form">
+            <form  th:action="@{/app}"  th:object="${apply_entity}" method="post">
                 <div class="row">
                     <div class="col-lg-2">
                         <label>个人企业标志：</label>
@@ -415,7 +415,7 @@
                             <label>客户经理：</label>
                         </div>
                         <div class="col-lg-6">
-                            <input class="form-control" placeholder="代码名称">
+                            <input class="form-control" placeholder="代码名称" name="customerManager" th:field="*{customerManager}">
                         </div>
                         <div class="col-lg-2">
                             <button type="button" class="btn btn-default">查询</button>
@@ -438,7 +438,7 @@
                                             <label>登记注册类型：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control">
+                                            <input class="form-control" name="registerType" th:field="*{registerType}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
