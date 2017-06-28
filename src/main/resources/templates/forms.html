@@ -370,204 +370,797 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
+                    <h4 class="page-header">申请人信息</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
+            <form role="form">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>个人企业标志：</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="form-control" th:selected="企业">
+                            <option>企业</option>
+                            <option>个人</option>
+                        </select>
+                    </div>
+                    <div class="checkbox col-lg-2">
+                        <label>
+                            <input type="checkbox" value="">国外
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="col-lg-4">
+                            <label>分/支行：</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <select class="form-control" th:selected="上海汇茂融资租赁有限公司" disabled>
+                                <option>上海汇茂融资租赁有限公司</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-lg-4">
+                            <label>客户号：</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-lg-4">
+                            <label>客户经理：</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input class="form-control" placeholder="代码名称">
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-default">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">注册登记信息</a>
+                            </h4>
                         </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Text Input</label>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>登记注册类型：</label>
+                                        </div>
+                                        <div class="col-lg-8">
                                             <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="Enter text">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>注册登记号：</label>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Static Control</label>
-                                            <p class="form-control-static">email@example.com</p>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
                                         </div>
-                                        <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>注册登记日期：</label>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Text area</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>营业执照到期日：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">贷款卡信息</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>贷款卡编码(中征码)：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>请重复输入 贷款卡编码(中征码)：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>贷款卡状态：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>贷款卡密码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">基本情况</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>借款人国别：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>中文名称：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>英文名称：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>开户许可证核准号：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>客户类型：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>住址机构代码证：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>借款人性质：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>机构信用代码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>组织机构类别细分：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>成立年份：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>法定代表人：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>经营范围：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>主要产品情况：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>国税登记号：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>地税登记号：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>行政区域：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>借款人特征：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <label>单位所属行业：</label>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <label>门类：</label>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <label>大类：</label>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <label>中类：</label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>注册资金(万元)：</label>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>实收资本(万元)：</label>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>从业人数：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>经营地面积：</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input class="form-control">
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label>平方米</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>经营地所有权：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>进出口权标志：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上市公司标志：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>股票代码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上市地：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>集团客户标志：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上级公司名称：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上级公司机构信用代码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上级公司贷款卡编码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上级公司组织机构代码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上级公司登记注册号类型：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>上级公司登记注册号码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">其他信息</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>机构状态：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>风险等级：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>财务部联系方式：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>我行股东：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="否">
+                                                <option>否</option>
+                                                <option>是</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>股权证书：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>投资日期：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>投资金额(万元)：</label>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <select class="form-control" selected="">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>投资比例(%)：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>投资方式：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-3">
+                                            <label>备注</label>
+                                        </div>
+                                        <div class="col-lg-9">
                                             <textarea class="form-control" rows="3"></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Checkboxes</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Checkbox 1
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Checkbox 2
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Checkbox 3
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Inline Checkboxes</label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">1
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">2
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">3
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Radio Buttons</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio 1
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio 2
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio 3
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Inline Radio Buttons</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Selects</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Multiple Selects</label>
-                                            <select multiple class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
-                                    </form>
+                                    </div>
                                 </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <h1>Disabled Form States</h1>
-                                    <form role="form">
-                                        <fieldset disabled>
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Disabled input</label>
-                                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Disabled select menu</label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Disabled select</option>
-                                                </select>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">Disabled Checkbox
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Disabled Button</button>
-                                        </fieldset>
-                                    </form>
-                                    <h1>Form Validation States</h1>
-                                    <form role="form">
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Input with success</label>
-                                            <input type="text" class="form-control" id="inputSuccess">
-                                        </div>
-                                        <div class="form-group has-warning">
-                                            <label class="control-label" for="inputWarning">Input with warning</label>
-                                            <input type="text" class="form-control" id="inputWarning">
-                                        </div>
-                                        <div class="form-group has-error">
-                                            <label class="control-label" for="inputError">Input with error</label>
-                                            <input type="text" class="form-control" id="inputError">
-                                        </div>
-                                    </form>
-                                    <h1>Input Groups</h1>
-                                    <form role="form">
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
                             </div>
-                            <!-- /.row (nested) -->
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                注册地址
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>国家/地区：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>省/市：</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <button type="button" class="btn btn-default">Default</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>地址：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                通讯地址
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>国家/地区：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>省/市：</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" selected="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <button type="button" class="btn btn-default">Default</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>地址：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>邮编：</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                联系信息
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>借款人联系电话：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>传真号码：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>电子邮件：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label>网址：</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <button type="reset" class="btn btn-primary">重  填</button>
+                        <button type="submit" class="btn btn-primary">保  存</button>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+
+
+             </form>
+                                        
+
         </div>
         <!-- /#page-wrapper -->
 

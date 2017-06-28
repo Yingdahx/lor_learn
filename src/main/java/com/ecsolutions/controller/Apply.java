@@ -1,4 +1,4 @@
-package com.ecsolutions;
+package com.ecsolutions.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Apply {
 
     public Apply() {
-    }
+}
 
     @GetMapping("/apply")
     public String getApplyPage() {
