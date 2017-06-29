@@ -16,17 +16,20 @@ public class Apply {
     public Apply() {
 }
 
+//    @GetMapping("/test")
+//    public String getTestPage() {
+//        return "test";
+//    }
+
     @GetMapping("/apply")
     public String getApplyPage(Model model) {
         model.addAttribute("apply_entity", new Apply_entity());
-        return "forms";
+        return "applyCompany";
     }
 
-    @PostMapping("/app")
+    @PostMapping("/apply")
     public String saveApplyInfo(@ModelAttribute Apply_entity apply_entity, Model model) {
         model.addAttribute("apply_entity", apply_entity);
-        System.out.println(apply_entity.getCustomerManager());
-        System.out.println(apply_entity.getRegisterType());
-        return "forms";
+        return "applyCompany";
     }
 }
