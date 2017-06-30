@@ -47,10 +47,10 @@
 	</style>
 </head>
 
-<body style="margin-left: 0px">
+<body>
 
     <div id="wrapper">
-        <div id="page-wrapper">
+        <div id="page-wrapper"  style="margin-left: 0px">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">贷款使用</h1>
@@ -173,7 +173,8 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">利率类型：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" th:value="${UsageInfo.rate.key}" name="Rate_Type">
+								<!--<select class="form-control select2" th:value="${UsageInfo.rate.key}" name="Rate_Type">-->
+								<select class="form-control select2"  name="Rate_Type">
 								<option>D5-6.1500000</option>
 								</select>
 							</div>
@@ -181,7 +182,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">年利率(%)：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" th:value="${UsageInfo.rate.value}" name="Rate" disabled>
+							<input type="text" class="form-control"  name="Rate" disabled>
 							</div>
 						</div>		
 					</div>

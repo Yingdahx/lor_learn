@@ -24,16 +24,24 @@ public class UsageInfo {
 
 
     @GetMapping("/UsageInfo")
-    public String getUsageInfo(@ModelAttribute String lineno, Model model){
-        model.addAttribute("UsageInfo",getservice.getCombineInfo(lineno));
+    public String getUsageInfo(Model model){
+        model.addAttribute("UsageInfo", new UsageInfo_Get_Entity());
 
         return "Usage";
 
     }
 
+/*    @GetMapping("/UsageInfo")
+    public String getUsageInfo(@ModelAttribute String lineno, Model model){
+        model.addAttribute("UsageInfo",getservice.getCombineInfo(lineno));
+
+        return "Usage";
+
+    }*/
+
     @PostMapping("/UsageInfo/Save")
     public String saveUsageInfo(@ModelAttribute UsageInfo_Save_Entity saveEntity,Model model){
-
+        model.addAttribute("UsageInfo", saveEntity);
         return ("waiting~");
     }
 
