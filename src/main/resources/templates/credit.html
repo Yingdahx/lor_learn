@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -56,7 +56,7 @@
                             <div class="col-lg-7">
                                 <select class="form-control" name="financing" id="financing">
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option th:each="financing:${credit_info.financingList}" th:value="${financing}" th:text="${financing}"></option>
                                 </select>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                                 <label>额度号：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="lineNumber" disabled>
+                                <input class="form-control" name="lineNumber" th:value="${credit_info.lineNumber}" disabled>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <div class="col-lg-7">
                                 <select class="form-control" name="lineGrade" id="lineGrade">
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option th:each="lineGrade:${credit_info.lineGradeList}" th:value="${lineGrade}" th:text="${lineGrade}"></option>
                                 </select>
                             </div>
                         </div>
@@ -130,7 +130,8 @@
                             <div class="col-lg-8">
                                 <select class="form-control" name="lineStatus" disabled>
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option value="等候" th:selected="${credit_info.lineStatus == '等候'}">等候</option>
+                                    <option value="使用" th:selected="${credit_info.lineStatus == '使用'}">使用</option>
                                 </select>
                             </div>
                         </div>
@@ -145,7 +146,7 @@
                             <div class="col-lg-7">
                                 <select class="form-control" name="currency" id="currency">
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency}" th:text="${currency}"></option>
                                 </select>
                             </div>
                         </div>
@@ -168,7 +169,7 @@
                                 <label>已用额度：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="usedLineAmount" disabled>
+                                <input class="form-control" name="usedLineAmount" th:value="${credit_info.usedLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -178,7 +179,7 @@
                                 <label>余额：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" name="remainingLineAmount" disabled>
+                                <input class="form-control" name="remainingLineAmount" th:value="${credit_info.remainingLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -190,7 +191,7 @@
                                 <label>冻结金额：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="freezingLineAmount" disabled>
+                                <input class="form-control" name="freezingLineAmount" th:value="${credit_info.freezingLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -200,7 +201,7 @@
                                 <label>可用额度：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" name="availableLineAmount" disabled>
+                                <input class="form-control" name="availableLineAmount" th:value="${credit_info.availableLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -258,7 +259,7 @@
                             <div class="col-lg-7">
                                 <select class="form-control" name="collateralMethod" id="collateralMethod">
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option th:each="collateralMethod:${credit_info.collateralMethodList}" th:value="${collateralMethod}" th:text="${collateralMethod}"></option>
                                 </select>
                             </div>
                         </div>
@@ -271,7 +272,7 @@
                             <div class="col-lg-8">
                                 <select class="form-control" name="documentMark" id="documentMark">
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option th:each="documentMark:${credit_info.documentMarkList}" th:value="${documentMark}" th:text="${documentMark}"></option>
                                 </select>
                             </div>
                         </div>
@@ -322,7 +323,7 @@
                             <div class="col-lg-8">
                                 <select class="form-control" name="countryRisk" id="countryRisk">
                                     <option disabled selected value></option>
-                                    <option>1</option>
+                                    <option th:each="countryRisk:${credit_info.countryRiskList}" th:value="${countryRisk}" th:text="${countryRisk}"></option>
                                 </select>
                             </div>
                         </div>
@@ -388,67 +389,67 @@
         $('.row select').removeAttr("style");
         $('.row input').removeAttr("style");
         if ($('#financing').val() == null){
-            alert("融资");
+            alert("融资不能为空");
             $('#financing').css("border","1px solid red");
             $('#financing').focus();
             return false;
         }
         if ($('#lineDescription').val() == ""){
-            alert("额度描述");
+            alert("额度描述不能为空");
             $('#lineDescription').css("border","1px solid red");
             $('#lineDescription').focus();
             return false;
         }
         if ($('#lineGrade').val() == null){
-            alert("额度等级");
+            alert("额度等级不能为空");
             $('#lineGrade').css("border","1px solid red");
             $('#lineGrade').focus();
             return false;
         }
         if ($('#currency').val == null){
-            alert("币种");
+            alert("币种不能为空");
             $('#currency').css("border","1px solid red");
             $('#currency').focus();
             return false;
         }
         if ($('#lineAmount').val() == ""){
-            alert("额度金额");
+            alert("额度金额不能为空");
             $('#lineAmount').css("border","1px solid red");
             $('#lineAmount').focus();
             return false;
         }
         if ($('#collateralMethod').val() == null){
-            alert("抵押担保方式");
+            alert("抵押担保方式不能为空");
             $('#collateralMethod').css("border","1px solid red");
             $('#collateralMethod').focus();
             return false;
         }
         if ($('#documentMark').val == null){
-            alert("文档标示");
+            alert("文档标示不能为空");
             $('#documentMark').css("border","1px solid red");
             $('#documentMark').focus();
             return false;
         }
         if ($('#createDate').val() == ""){
-            alert("创建日期");
+            alert("创建日期不能为空");
             $('#createDate').css("border","1px solid red");
             $('#createDate').focus();
             return false;
         }
         if ($('#loopFlag').val() == null){
-            alert("循环");
+            alert("循环不能为空");
             $('#loopFlag').css("border","1px solid red");
             $('#loopFlag').focus();
             return false;
         }
         if ($('#dueDate').val() == ""){
-            alert("到期日期");
+            alert("到期日期不能为空");
             $('#dueDate').css("border","1px solid red");
             $('#dueDate').focus();
             return false;
         }
         if ($('#countryRisk').val() == null){
-            alert("国别风险");
+            alert("国别风险不能为空");
             $('#countryRisk').css("border","1px solid red");
             $('#countryRisk').focus();
             return false;
