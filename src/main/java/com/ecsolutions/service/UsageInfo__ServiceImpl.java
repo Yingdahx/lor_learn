@@ -4,6 +4,7 @@ import com.ecsolutions.dao.UsageInfo_Get_DAO;
 import com.ecsolutions.entity.UsageInfo_Get_Entity;
 import com.ecsolutions.entity.UsageInfo_Save_Entity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.Map;
 /**
  * Created by Administrator on 2017/6/29.
  */
+
+@Service("UsageInfo_Service")
 public class UsageInfo__ServiceImpl implements UsageInfo_Service {
     private UsageInfo_Get_DAO dao;
     private  UsageInfo_Get_Entity entity;
