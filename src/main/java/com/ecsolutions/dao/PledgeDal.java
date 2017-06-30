@@ -1,4 +1,4 @@
-package com.ecsolutions.dal;
+package com.ecsolutions.dao;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultType;

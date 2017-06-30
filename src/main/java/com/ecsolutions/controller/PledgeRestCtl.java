@@ -1,4 +1,4 @@
-package com.ecsolutions.restController;
+package com.ecsolutions.controller;
 
 import com.ecsolutions.entity.PledgeEnt;
 import com.ecsolutions.service.Pledge_Service;

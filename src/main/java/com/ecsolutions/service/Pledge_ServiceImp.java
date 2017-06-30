@@ -3,7 +3,7 @@ package com.ecsolutions.service;
 import com.ecsolutions.entity.PledgeEnt;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ecsolutions.dal.PledgeDal;
+import com.ecsolutions.dao.PledgeDal;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
