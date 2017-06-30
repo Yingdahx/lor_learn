@@ -69,9 +69,21 @@
                                         <label>质押物种类：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" name="Mode1" >
+                                        <select id="model1" class="form-control" selected="" ame="Mode1" th:field="*{Mode1}" >
                                             <option value="0">-</option>
-                                            <option value="1">-</option>
+                                            <option value="1">应收账款质押</option>
+                                            <option value="2">银行账户质押</option>
+                                            <option value="3">汽车合格证质押</option>
+                                            <option value="4">存单(折)质押</option>
+                                            <option value="5">权利凭证质押</option>
+                                            <option value="6">收费权质押</option>
+                                            <option value="7">知识产权质押</option>
+                                            <option value="8">提货单质押</option>
+                                            <option value="9">票据质押</option>
+                                            <option value="10">股份、股票质押</option>
+                                            <option value="11">仓单质押</option>
+                                            <option value="12">国债质押</option>
+                                            <option value="13">其他质押</option>
                                         </select>
                                     </div>
                                 </div>
@@ -82,9 +94,11 @@
                                         <label>质押金额：</label>
                                     </div>
                                     <div class="col-lg-3">
-                                        <select class="form-control" selected="" name="AmountCCY" >
+                                        <select class="form-control" selected="" name="AmountCCY" th:field="*{AmountCCY}" >
                                             <option value="0">-</option>
-                                            <option value="1">-</option>
+                                            <option value="1">RMB</option>
+                                            <option value="2">HKD</option>
+                                            <option value="3">USD</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3">
@@ -165,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divOwer" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">权属情况</a>
@@ -235,13 +249,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divReceivables" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">应收账款质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree1">应收账款质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree1" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -290,13 +304,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divBankAccount" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">银行账户质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree2">银行账户质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree2" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -396,13 +410,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divCar" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">汽车合格证质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree3">汽车合格证质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree3" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -494,13 +508,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divCDs" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">存单（折）质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree4">存单（折）质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree4" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -601,13 +615,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divClaim" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">权利凭证质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree5">权利凭证质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree5" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -690,13 +704,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divCharge" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">收费权质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree6">收费权质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree6" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -760,13 +774,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divIntellectual" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">知识产权质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree7">知识产权质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree7" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -876,13 +890,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divLading" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">提货单质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree8">提货单质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree8" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1002,13 +1016,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divTicket" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">票据质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree9">票据质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree9" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1090,13 +1104,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divStock" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">股份、股票质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree10">股份、股票质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree10" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1234,13 +1248,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divWarehouse" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">仓单质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree11">仓单质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree11" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1386,13 +1400,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div id="divNational" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">国债质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree12">国债质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree12" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1495,13 +1509,13 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default">
+                <div id="divOther" class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">其他质押</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree13">其他质押</a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree13" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -1579,7 +1593,75 @@
 
 <!-- Custom Theme JavaScript -->
 <script th:src="@{/dist/js/sb-admin-2.js}"></script>
+<script>
+    $(document).ready(function() {
+        $("div[id^='div']").hide();
+        $("#divOwer").show();
+        $("#model1").change( function(e) {
 
+            $("div[id^='div']").hide();
+            $("#divOwer").hide();
+            var locVal=$("#model1").val();
+            //alert(locVal);
+           if(locVal=="1")
+           {
+               $("#divReceivables").show();
+           }
+           else if(locVal=="2")
+            {
+                $("#divBankAccount").show();
+            }
+           else  if(locVal=="3")
+            {
+                $("#divCar").show();
+            }
+            if(locVal=="4")
+            {
+                $("#divCDs").show();
+            }
+            else if(locVal=="5")
+            {
+                $("#divclaim").show();
+            }
+            else  if(locVal=="6")
+            {
+                $("#divCharge").show();
+            }
+            else  if(locVal=="7")
+            {
+                $("#divIntellectual").show();
+            }
+            else   if(locVal=="8")
+            {
+                $("#divLading").show();
+            }
+            else  if(locVal=="9")
+            {
+                $("#divTicket").show();
+            }
+            else  if(locVal=="10")
+            {
+                $("#divStock").show();
+            }
+            else  if(locVal=="11")
+            {
+                $("#divWarehouse").show();
+            }
+            else  if(locVal=="12")
+            {
+                $("#divNational").show();
+            }
+            else  if(locVal=="13")
+            {
+                $("#divOther").show();
+            }
+            else
+            {
+                $("#divOwer").show();
+            }
+        })
+    })
+</script>
 </body>
 
 </html>
