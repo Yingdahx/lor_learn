@@ -24,8 +24,8 @@ public class Credit_Controller {
     }
 
     @GetMapping("/credit")
-    public String getCreditInfo(){
-        //model.addAttribute("credit_info", credit_service.getCreditInfo());
+    public String getCreditInfo(Model model){
+        model.addAttribute("credit_info", credit_service.getCreditInfo());
         return "credit";
     }
 

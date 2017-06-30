@@ -5,6 +5,8 @@ import com.ecsolutions.entity.Credit_Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +25,18 @@ public class Credit_ServiceImpl implements  Credit_Service {
     @Override
     public Credit_Entity getCreditInfo(){
         Credit_Entity result = new Credit_Entity();
+        List<String> financings = new ArrayList<>();
+        financings.add("产品1");
+        financings.add("产品2");
+        financings.add("产品3");
+        result.setFinancingList(financings);
+
+        result.setLineNumber("LN2333");
+        result.setLineStatus("等候");
+        result.setUsedLineAmount(new BigDecimal(0.00));
+        result.setRemainingLineAmount(new BigDecimal(0.00));
+        result.setFreezingLineAmount(new BigDecimal(0.00));
+        result.setAvailableLineAmount(new BigDecimal(0.00));
         return result;
     }
 
