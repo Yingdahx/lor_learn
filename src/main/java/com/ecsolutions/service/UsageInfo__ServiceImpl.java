@@ -43,39 +43,39 @@ public class UsageInfo__ServiceImpl implements UsageInfo_Service {
 
     private void setusageinfo(String lineno)
     {
-        this.entity=dao.getusageinfo(lineno);
+       // this.entity=dao.getusageinfo(lineno);
     }
 
     private void  setproducts(){
         List<String> prods;
-        prods=dao.getproducts();
-        this.entity.setProd_types(prods);
+        //prods=dao.getproducts();
+       // this.entity.setProd_types(prods);
 
     }
 
     private void setrate(){
         Map<String,BigDecimal> rate;
-        rate=dao.getrate();
-        this.entity.setRate(rate);
+        //rate=dao.getrate();
+       // this.entity.setRate(rate);
 
     }
 
     private void setcollFlag(){
         List<String> colls;
-        colls=dao.getcollFlag();
-        this.entity.setCollflag(colls);
+        //colls=dao.getcollFlag();
+        //this.entity.setCollflag(colls);
 
     }
 
     private void setdocFlag(){
         List<String> docs;
-        docs=dao.getdocFlag();
-        this.entity.setDocflag(docs);
+        //docs=dao.getdocFlag();
+       // this.entity.setDocflag(docs);
     }
 
     private void setManagerInfo(){
         Map<String,String> mng;
-        mng=dao.getManagerInfo();
-        this.entity.setManagers(mng);
+       // mng=dao.getManagerInfo();
+       // this.entity.setManagers(mng);
     }
 }

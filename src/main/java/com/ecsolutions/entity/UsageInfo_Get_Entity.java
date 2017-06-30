@@ -10,10 +10,10 @@ import java.util.Map;
 public class UsageInfo_Get_Entity {
     private String Loan_RefNo;
     private String Line_No;
-    private String Line_desc;
-    private String Line_CCY;
-    private String Line_AMT;
-    private String AvaLine_AMT;
+    private String Line_desc="test";
+    private String Line_CCY="RMB";
+    private String Line_AMT="10000.00";
+    private String AvaLine_AMT="10000.00";
     private List<String> prod_types;
     private Map<String,BigDecimal> rate;
     private List<String> collflag;
