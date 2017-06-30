@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="page-header">申请人信息</h4>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <form th:action="@{/customerInfo}"  th:object="${customer_entity}" method="post">
+
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>个人企业标志：</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="form-control" th:field="*{individualCompanyFlag}" name="individualCompanyFlag" th:selected="*{individualCompanyFlag}" required>
+                        <option value="">企业</option>
+                            <option value="">个人</option>
+                        </select>
+                    </div>
+                    <div class="checkbox col-lg-2">
+                        <label>
+                            <input type="checkbox" value="" th:checked="*{foreign}" name="foreign">国外
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="col-lg-4">
+                            <label>分/支行：</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <select class="form-control" th:field="*{branch}" disabled name="branch">
+                                <option value="">上海汇茂融资租赁有限公司</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-lg-4">
+                            <label>客户号：</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input class="form-control" disabled th:field="*{customerCode}" name="customerCode">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-lg-4">
+                            <label>客户经理：</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input class="form-control" placeholder="代码名称" name="customerManager" th:field="*{customerManager}" required>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-default">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">证件信息</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>证件类型：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{idType}" name="idType">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>证件号码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{idNum}" name="idNum">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>请重复输入 证件号码：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{idNum2}" name="idNum2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>中文名字：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{chineseName}" name="chineseName">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>英文名字：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{engName}" name="engName">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">基本情况</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>国籍：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{nationality}" name="nationality">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>出生日期：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{birthday}" name="birthday">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>性别：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{sex}" name="sex">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>曾用名：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{formerName}" name="formerName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>民族：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{minzu}" name="minzu">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>政治面貌：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{zzmm}" name="zzmm">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>居民标示：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{juminFlag}" name="juminFlag">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-4">
+                                            <label>电子邮件：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{email}" name="email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">家庭情况</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>婚姻状况：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{jtqk_hyzk}" name="jtqk_hyzk">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>家庭人口：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{jtqk_jtrk}" name="jtqk_jtrk">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>居住状况：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{jtqk_jzzk}" name="jtqk_jzzk">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">工作情况</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>单位名称：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{gzqk_dwmc}" name="gzqk_dwmc">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>单位所属行业 门类：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{gzqk_ml}" name="gzqk_ml">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>大类：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{gzqk_dl}" name="gzqk_dl">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>中类：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zl}" name="gzqk_zl">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>本单位工作起始年份：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{gzqk_qsnf}" name="gzqk_qsnf">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>职业：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zy}" name="gzqk_zy">
+                                                <option value=""></option>
+                                                <option value="">国家机关、党群组织、企业、事业单位负责人</option>
+                                                <option value="">专业技术人员</option>
+                                                <option value="">办事人员和有关人员</option>
+                                                <option value="">商业、服务业人员</option>
+                                                <option value="">农、林、牧、渔、水利业生产人员</option>
+                                                <option value="">生产、运输设备操作人员及有关人员</option>
+                                                <option value="">军人</option>
+                                                <option value="">未知</option>
+                                                <option value="">银行业</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>职务：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zw}" name="gzqk_zw">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>职称：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zc}" name="gzqk_zc">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-3">
+                                            <label>年收入：</label>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <select class="form-control" selected="" th:field="*{gzqk_ccy}" name="gzqk_ccy">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" th:field="*{gzqk_nsr}" name="gzqk_nsr">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>工资账号：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{gzqk_gzzh}" name="gzqk_gzzh">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-lg-4">
+                                            <label>工资账户开户银行：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{gzqk_khyh}" name="gzqk_khyh">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">教育信息</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>最高学历：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{jyxx_zgxl}" name="jyxx_zgxl">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <label>最高学位：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{jyxx_zgxw}" name="jyxx_zgxw">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">贷款卡信息</a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>贷款卡编码：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" disabled th:field="*{dkkxx_dkkbm}" name="dkkxx_dkkbm">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>请重复录入贷款卡编码：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" disabled th:field="*{dkkxx_dkkbm2}" name="dkkxx_dkkbm2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>贷款卡状态：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <select class="form-control" selected="" th:field="*{dkkxx_dkkzt}" name="dkkxx_dkkzt">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>贷款卡密码：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{dkkxx_dkkmm}" name="dkkxx_dkkmm">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">其它信息</a>
+                        </h4>
+                    </div>
+                    <div id="collapseSeven" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="checkbox col-lg-6">
+                                    <label>
+                                        <input type="checkbox" value="" th:checked="*{qtxx_gdFlag}" name="qtxx_gdFlag">是我行股东
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="col-lg-3">
+                                        <label>股权证号：</label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <select class="form-control" selected="" th:field="*{qtxx_gqzh}" name="qtxx_gqzh">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" th:field="*{qtxx_gqzh2}" name="qtxx_gqzh2">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="col-lg-4">
+                                        <label>投资金额(万元)：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{qtxx_tzje}" name="qtxx_tzje">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="col-lg-4">
+                                        <label>投资日期：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{qtxx_tzrq}" name="qtxx_tzrq">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>投资比例(%)：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{qtxx_tzbl}" name="qtxx_tzbl">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>投资方式：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{qtxx_tzfs}" name="qtxx_tzfs">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="checkbox col-lg-6">
+                                    <label>
+                                        <input type="checkbox" value="" th:checked="*{qtxx_ygFlag}" name="qtxx_ygFlag">是我行职工
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>在我行担任职务：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{qtxx_drzw}" name="qtxx_drzw">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label>备注：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <textarea class="form-control" rows="3" th:field="*{qtxx_bz}" name="qtxx_bz"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                <div class="panel panel-default" style="width: 50%;height:400px;float: left">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">通讯地址</a>
+                        </h4>
+                    </div>
+                    <div id="collapseEight" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>国家/地区：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <select class="form-control" selected="" th:field="*{txdz_country}" name="txdz_country">
+                                            <option value="">-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>省/市：</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" selected="" th:field="*{txdz_ss}" name="txdz_ss">
+                                            <option value="">-</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <button type="button" class="btn btn-default">Default</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>地址：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{txdz_dz1}" name="txdz_dz1">
+                                        <input class="form-control" th:field="*{txdz_dz2}" name="txdz_dz2">
+                                        <input class="form-control" th:field="*{txdz_dz3}" name="txdz_dz3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>邮编：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{txdz_yb}" name="txdz_yb">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>住宅电话：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{txdz_tel}" name="txdz_tel">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>手机号码：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{txdz_mobile}" name="txdz_mobile">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default" style="width: 50%;height:400px;float: left">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">户籍地址</a>
+                        </h4>
+                    </div>
+                    <div id="collapseNine" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>国家/地区：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <select class="form-control" selected="" th:field="*{hjdz_country}" name="hjdz_country">
+                                            <option value="">-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>省/市：</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" selected="" th:field="*{hjdz_ss}" name="hjdz_ss">
+                                            <option value="">-</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <button type="button" class="btn btn-default">Default</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>地址：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{hjdz_dz1}" name="hjdz_dz1">
+                                        <input class="form-control" th:field="*{hjdz_dz2}" name="hjdz_dz2">
+                                        <input class="form-control" th:field="*{hjdz_dz3}" name="hjdz_dz3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="col-lg-4">
+                                        <label>邮编：</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{hjdz_yb}" name="hjdz_yb">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                <div>
+                    <div class="panel panel-default" style="width: 50%;height:400px;float: left">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">单位地址</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTen" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>国家/地区：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{dwdz_country}" name="dwdz_country">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>省/市：</label>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select class="form-control" selected="" th:field="*{dwdz_ss}" name="dwdz_ss">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <button type="button" class="btn btn-default">Default</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>地址：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{dwdz_dz1}" name="dwdz_dz1">
+                                            <input class="form-control" th:field="*{dwdz_dz2}" name="dwdz_dz2">
+                                            <input class="form-control" th:field="*{dwdz_dz3}" name="dwdz_dz3">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>邮编：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{dwdz_yb}" name="dwdz_yb">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>单位电话：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{dwdz_tel}" name="dwdz_tel">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default" style="width: 50%;height:400px;float: right">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">居住地址</a>
+                            </h4>
+                        </div>
+                        <div id="collapseEleven" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>国家/地区：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" selected="" th:field="*{jzdz_country}" name="jzdz_country">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>省/市：</label>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select class="form-control" selected="" th:field="*{jzdz_ss}" name="jzdz_ss">
+                                                <option value="">-</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <button type="button" class="btn btn-default">Default</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>地址：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{jzdz_dz1}" name="jzdz_dz1">
+                                            <input class="form-control" th:field="*{jzdz_dz2}" name="jzdz_dz2">
+                                            <input class="form-control" th:field="*{jzdz_dz3}" name="jzdz_dz3">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="col-lg-4">
+                                            <label>邮编：</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" th:field="*{jzdz_yb}" name="jzdz_yb">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4" align="center">
+                        <button type="reset" class="btn btn-primary">重  填</button>
+                        <button type="submit" class="btn btn-primary">保  存</button>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+
+
+
+
+
+
+             </form>
+                                        
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
