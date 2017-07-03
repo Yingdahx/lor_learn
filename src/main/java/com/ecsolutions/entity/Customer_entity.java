@@ -60,8 +60,8 @@ public class Customer_entity {
     //其他信息
     private boolean qtxx_gdFlag;
     private String qtxx_gqzh;
-    private String qtxx_gqzh2;
     private String qtxx_tzje;
+    private String qtxx_tzje2;
     private String qtxx_tzrq;
     private String qtxx_tzbl;
     private String qtxx_tzfs;
@@ -103,6 +103,14 @@ public class Customer_entity {
     private String jzdz_dz2;
     private String jzdz_dz3;
     private String jzdz_yb;
+
+    public String getQtxx_tzje2() {
+        return qtxx_tzje2;
+    }
+
+    public void setQtxx_tzje2(String qtxx_tzje2) {
+        this.qtxx_tzje2 = qtxx_tzje2;
+    }
 
     public String getIndividualCompanyFlag() {
         return individualCompanyFlag;
@@ -432,13 +440,7 @@ public class Customer_entity {
         this.qtxx_gqzh = qtxx_gqzh;
     }
 
-    public String getQtxx_gqzh2() {
-        return qtxx_gqzh2;
-    }
 
-    public void setQtxx_gqzh2(String qtxx_gqzh2) {
-        this.qtxx_gqzh2 = qtxx_gqzh2;
-    }
 
     public String getQtxx_tzje() {
         return qtxx_tzje;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
 
@@ -50,7 +50,8 @@
 <body>
 
     <div id="wrapper">
-        <div id="page-wrapper"  style="margin-left: 0px">
+
+        <div id="page-wrapper" style="margin-left:0px">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">贷款使用</h1>
@@ -89,7 +90,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">额度币种：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" th:value="${UsageInfo.Line_CCY}" name="Line_CCY" disabled>
+								<select class="form-control select2" name="Line_CCY" disabled>
 								<option>RMB</option>
 								<option>USD</option>
 								<option>SGD</option>
@@ -104,13 +105,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">额度金额：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" th:value="${UsageInfo.Line_AMT}" name="Line_AMT" disabled>
+							<input type="number" step="0.01" class="form-control" th:value="${UsageInfo.Line_AMT}" name="Line_AMT" disabled>
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">可用额度金额：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" th:value="${UsageInfo.AvaLine_AMT}" name="AvaLine_AMT" disabled>
+							<input type="number" step="0.01" class="form-control" th:value="${UsageInfo.AvaLine_AMT}" name="AvaLine_AMT" disabled>
 							</div>
 						</div>		
 					</div>
@@ -122,7 +123,7 @@
 								  <div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								  </div>
-								  <input type="text" class="form-control pull-right datepicker"  name="DrawDate">
+								  <input type="date" class="form-control pull-right datepicker"  name="DrawDate">
 								</div>
 							</div>
 						</div>
@@ -133,7 +134,7 @@
 								  <div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								  </div>
-								  <input type="text" class="form-control pull-right datepicker" name="Analysis_Date">
+								  <input type="date" class="form-control pull-right datepicker" name="Analysis_Date">
 								</div>
 							</div>
 						</div>		
@@ -142,7 +143,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">方案类型：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" th:value="${UsageInfo.prod_types}" name="Prod_Type">
+								<select class="form-control select2" name="Prod_Type" required="required">
 								<option>商户担保贷款</option>
 								</select>
 							</div>
@@ -165,7 +166,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">放款金额：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Draw_AMT">
+							<input type="number" step="0.01" class="form-control" required="required" name="Draw_AMT">
 							</div>
 						</div>		
 					</div>
@@ -173,8 +174,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">利率类型：</label>
 							<div class="col-md-8">				
-								<!--<select class="form-control select2" th:value="${UsageInfo.rate.key}" name="Rate_Type">-->
-								<select class="form-control select2"  name="Rate_Type">
+								<select class="form-control select2" name="Rate_Type" required="required">
 								<option>D5-6.1500000</option>
 								</select>
 							</div>
@@ -182,7 +182,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">年利率(%)：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control"  name="Rate" disabled>
+							<input type="number" step="0.01" class="form-control" th:value="${UsageInfo.rate.value}" name="Rate" disabled>
 							</div>
 						</div>		
 					</div>
@@ -190,13 +190,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">年利率调幅值(%)：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="RateSpread" disabled>
+							<input type="number" step="0.01" class="form-control" name="RateSpread" disabled>
 							</div>
 						</div>
 						<div class="col-lg-5" style="overflow:true">
 							<label class="col-md-5">利率调幅百分比(%)：</label>
 							<div class="col-md-7" style="margin-left:-45px;">				
-							<input type="text" class="form-control" name="RatePercent">
+							<input type="number" step="0.01" class="form-control" name="RatePercent">
 							</div>
 						</div>		
 					</div>
@@ -204,13 +204,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">调整后年利率(%)：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="SchemaRate" disabled>
+							<input type="number" step="0.01" class="form-control" name="SchemaRate" disabled>
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">还款方式：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" name="Repayment_Meth">
+								<select class="form-control select2" name="Repayment_Meth" required="required">
 								<option>等额本息</option>
 								<option>等额本金</option>
 								<option>一次性还本分次付息</option>
@@ -224,13 +224,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">期数：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Tenor">
+							<input type="number" class="form-control" name="Tenor" required="required">
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">固定浮动标志：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" name="Fix_Flag">
+								<select class="form-control select2" name="Fix_Flag" required="required">
 								<option>固定</option>
 								<option>浮动</option>								
 								</select>
@@ -241,10 +241,10 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">还款周期：</label>
 							<div class="col-md-3" style="padding:0px;margin-left:5px">				
-							<input type="text" class="form-control" name="Pay_Freq">
+							<input type="number" class="form-control" name="Pay_Freq" required="required">
 							</div>
 							<div class="col-md-3">				
-								<select class="form-control select2" name="Pay_Per">
+								<select class="form-control select2" name="Pay_Per" required="required">
 								<option selected="selected">月</option>
 								<option>年</option>
 								<option>日</option>								
@@ -258,7 +258,7 @@
 								  <div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								  </div>
-								  <input type="text" class="form-control pull-right datepicker"  name="FirstPayDate">
+								  <input type="text" class="form-control pull-right datepicker"  name="FirstPayDate" required="required">
 								</div>
 							</div>
 						</div>		
@@ -267,7 +267,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">抵押担保方式：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" th:value="${UsageInfo.collflag}" name="CollFlag" disabled>
+								<select class="form-control select2" name="CollFlag" disabled required="required">
 								<option>抵押</option>
 								<option>质押</option>
 								<option>抵押+质押</option>
@@ -277,7 +277,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">文档标示：</label>
 							<div class="col-md-8">				
-								<select class="form-control select2" th:value="${UsageInfo.docflag}" name="DocFlag">
+								<select class="form-control select2" name="DocFlag" required="required">
 								<option>未完成</option>								
 								</select>
 							</div>
@@ -337,7 +337,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">贷款投向说明：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="DircDesc">
+							<input type="text" class="form-control" maxlength="50" name="DircDesc">
 							</div>
 						</div>
 						<div class="col-lg-5">
@@ -358,10 +358,8 @@
 							<label class="col-md-4">[微]产品：</label>
 							<div class="col-md-8">				
 								<select class="form-control select2" name="Mic_Prod">
-								<option>RMB</option>
-								<option>USD</option>
-								<option>SGD</option>
-								<option>UKD</option>
+								<option>产品1</option>
+								
 								</select>
 							</div>
 						</div>		
@@ -370,13 +368,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4" style="padding-right:0px">教育贷款优惠年数：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Edu_Year">
+							<input type="number"  class="form-control" name="Edu_Year">
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">保证金：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Margin_AMT">
+							<input type="number" step="0.01" class="form-control" name="Margin_AMT">
 							</div>
 						</div>		
 					</div>
@@ -384,13 +382,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">手续费类型：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Charge_Type">
+							<input type="text" class="form-control" name="Charge_Type" maxlength="20">
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">手续费总金额：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Charge_AMT">
+							<input type="number" step="0.01" class="form-control" name="Charge_AMT">
 							</div>
 						</div>		
 					</div>
@@ -402,7 +400,7 @@
 								  <div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								  </div>
-								  <input type="text" class="form-control pull-right datepicker"  name="Charge_Date">
+								  <input type="date" class="form-control pull-right datepicker"  name="Charge_Date">
 								</div>
 							</div>
 						</div>
@@ -411,7 +409,7 @@
 							<div class="col-md-9" style="margin-left:-30px">
 								<label class="col-sm-2" style="padding: 0px">代码：</label>
 								<div class="col-sm-3" style="padding: 0px;margin-left:-10px">				
-								<input type="text" class="form-control" name="Account_MNG">
+								<input type="text" class="form-control" name="Account_MNG" required="required">
 								</div>
 								<button name="btn_ACMNG" class="col-sm-2 btn-default" style="padding: 0px;margin:5px">查询</button>
 								<label class="col-sm-2" style="padding: 0px">名称：</label>
@@ -423,7 +421,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">借款合同号：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="Contract_Symbol">
+							<input type="text" class="form-control" name="Contract_Symbol" maxlength="60">
 							</div>
 						</div>
 						<div class="col-lg-5">
@@ -438,7 +436,7 @@
 								  <div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								  </div>
-								  <input type="text" class="form-control pull-right datepicker"  name="Sign_Date">
+								  <input type="date" class="form-control pull-right datepicker"  name="Sign_Date">
 								</div>
 							</div>
 						</div>
@@ -450,13 +448,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">入款户名：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="InAcc_Name">
+							<input type="text" class="form-control" name="InAcc_Name" maxlength="50">
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">入款账号：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="InAcc_No">
+							<input type="text" class="form-control" name="InAcc_No" maxlength="50">
 							</div>
 						</div>		
 					</div>
@@ -464,13 +462,13 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">扣款户名：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" name="OutAcc_Name">
+							<input type="text" class="form-control" name="OutAcc_Name" maxlength="50">
 							</div>
 						</div>
 						<div class="col-lg-5">
 							<label class="col-md-4">扣款账号：</label>
 							<div class="col-md-8">				
-							<input type="text" class="form-control" Name="OutAcc_No">
+							<input type="text" class="form-control" Name="OutAcc_No" maxlength="50">
 							</div>
 						</div>		
 					</div>
