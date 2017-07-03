@@ -109,13 +109,15 @@
                                         <label>质押物价值：</label>
                                     </div>
                                     <div class="col-lg-3">
-                                        <select class="form-control" selected="" name="ValueCCY" >
+                                        <select class="form-control" selected="" name="ValueCCY" th:field="*{ValueCCY}">
                                             <option value="0">-</option>
-                                            <option value="1">-</option>
+                                            <option value="1">RMB</option>
+                                            <option value="2">HKD</option>
+                                            <option value="3">USD</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3">
-                                        <input class="form-control"  name="Value11" >
+                                        <input class="form-control"  name="Value"  th:field="*{Value}">
                                     </div>
                             </div>
                             </div>
@@ -152,9 +154,10 @@
                                         <label>权属情况：</label>
                                     </div>
                                     <div class="col-lg-2">
-                                        <select class="form-control" selected="" name="BankPledgeOwnerType"  >
-                                            <option value="0">-</option>
-                                            <option value="1">-</option>
+                                        <select class="form-control" selected="" name="BankPledgeOwnerType" th:field="*{BankPledgeOwnerType}" >
+                                            <option value="0">公有</option>
+                                            <option value="1">自有</option>
+                                            <option value="2">他有</option>
                                         </select>
                                     </div>
                                 </div>
@@ -193,7 +196,7 @@
                                         <label>贷款卡编码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="Ethnic" th:field="*{Ethnic}">
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +207,7 @@
                                         <label>证件类型：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select class="form-control" selected="">
+                                        <select class="form-control" selected=""　name="pIdTypeId">
                                             <option>-</option>
                                         </select>
                                     </div>
@@ -213,7 +216,7 @@
                                         <label>证件号码：</label>
                                     </div>
                                     <div class="col-lg-2">
-                                        <input class="form-control" name="registerType">
+                                        <input class="form-control" name="pIdNo" th:field="*{pIdNo}">
                                     </div>
                                 </div>
                             </div>
@@ -224,14 +227,14 @@
                                         <label>抵押/质押 人名称：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <input class="form-control" name="registerType">
+                                        <input class="form-control" name="MortgagorName"　th:field="*{MortgagorName}">
                                     </div>
 
                                     <div class="col-lg-2">
                                         <label>联系地址：</label>
                                     </div>
                                     <div class="col-lg-2">
-                                        <input class="form-control" name="registerType">
+                                        <input class="form-control" name="ContactAddress"　th:field="*{ContactAddress}">
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +245,7 @@
                                         <label>联系电话：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" name="registerType">
+                                        <input class="form-control" name="ContactPhone"　th:field="*{ContactPhone}">
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +266,7 @@
                                         <label>应收账款出质人：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="AccRecProvePerson" th:field="*{AccRecProvePerson}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -271,7 +274,7 @@
                                         <label>应收账款所有人：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="AccRecOwner" th:field="*{AccRecOwner}">
                                     </div>
                                 </div>
                             </div>
@@ -281,12 +284,12 @@
                                     <label>应收账款金额：</label>
                                 </div>
                                 <div class="col-lg-3">
-                                    <select class="form-control" selected="">
+                                    <select class="form-control" selected="" name="AccRecAmountCCY" >
                                         <option>-</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
-                                    <input class="form-control" name="registerType">
+                                    <input class="form-control" name="AccRecAmount" th:field="*{AccRecAmount}">
                                 </div>
                             </div>
                             </div>
@@ -378,8 +381,8 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <select class="form-control" selected="" name="BankIsFreezed" th:field="*{BankIsFreezed}">
-                                            <option value="0">-</option>
-                                            <option value="1">-</option>
+                                            <option value="0">否</option>
+                                            <option value="1">是</option>
                                         </select>
                                     </div>
                                 </div>
@@ -388,9 +391,9 @@
                                         <label>是否执行托管：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" name="BankAccountIsTrust" >
-                                            <option value="0">-</option>
-                                            <option value="1">-</option>
+                                        <select class="form-control" selected="" name="BankAccountIsTrust"　 th:field="*{BankAccountIsTrust}" >
+                                            <option value="0">否</option>
+                                            <option value="1">是</option>
                                         </select>
                                     </div>
                                 </div>
@@ -424,7 +427,7 @@
                                         <label>出质人：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" name="CerOrg" th:field="*{CerOrg}">
+                                        <input class="form-control" name="CarProvePerson" th:field="*{CarProvePerson}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -432,7 +435,7 @@
                                         <label>生产商：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" name="CerCustomer" th:field="*{CerCustomer}">
+                                        <input class="form-control" name="CarProduction" th:field="*{CarProduction}">
                                     </div>
                                 </div>
                             </div>
@@ -530,7 +533,7 @@
                                         <label>凭证种类：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" name="CDType" >
+                                        <select class="form-control" selected="" name="CDType"　th:field="*{CDType}" >
                                             <option value="0">-</option>
                                             <option value="1">-</option>
                                         </select>
@@ -571,7 +574,7 @@
                                         <label>是否本行：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" name="CDIsSelfBank" >
+                                        <select class="form-control" selected="" name="CDIsSelfBank" th:field="*{CDIsSelfBank}">
                                             <option value="0">-</option>
                                             <option value="1">-</option>
                                         </select>
@@ -593,9 +596,9 @@
                                         <label>是否止付：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" name="CDIsStopPay" >
-                                            <option value="0">-</option>
-                                            <option value="1">-</option>
+                                        <select class="form-control" selected="" name="CDIsStopPay"　th:field="*{CDIsStopPay}" >
+                                            <option value="0">否</option>
+                                            <option value="1">是</option>
                                         </select>
                                     </div>
                                 </div>
@@ -629,7 +632,7 @@
                                         <label>开出机构：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerOrg" th:field="*{CerOrg}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -637,7 +640,7 @@
                                         <label>凭证客户名称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerCustomer" th:field="*{CerCustomer}">
                                     </div>
                                 </div>
                             </div>
@@ -648,7 +651,7 @@
                                         <label>凭证号码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerNO" th:field="*{CerNO}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -656,7 +659,7 @@
                                         <label>凭证账号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerAccount" th:field="*{CerAccount}">
                                     </div>
                                 </div>
                             </div>
@@ -667,7 +670,7 @@
                                         <label>凭证生效日：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerEffectiveDate" th:field="*{CerEffectiveDate}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -675,7 +678,7 @@
                                         <label>凭证到期日：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerLastDate" th:field="*{CerLastDate}">
                                     </div>
                                 </div>
                             </div>
@@ -686,7 +689,7 @@
                                         <label>凭证票面金额：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control"　name="CerAmount" th:field="*{CerAmount}">
                                     </div>
                                 </div>
                             </div>
@@ -718,7 +721,7 @@
                                         <label>收费单位：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ChargeOrg" th:field="*{ChargeOrg}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -726,7 +729,7 @@
                                         <label>收费项目：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ChargeProject" th:field="*{ChargeProject}">
                                     </div>
                                 </div>
                             </div>
@@ -737,7 +740,7 @@
                                         <label>收费许可证号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ChargeLicenceNo" th:field="*{ChargeLicenceNo}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -745,7 +748,7 @@
                                         <label>收费权到期日：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ChargeLastDate" th:field="*{ChargeLastDate}">
                                     </div>
                                 </div>
                             </div>
@@ -756,7 +759,7 @@
                                         <label>收费权质押登记机构：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ChargeRegOrg" th:field="*{ChargeRegOrg}">
                                     </div>
                                 </div>
                             </div>
@@ -788,7 +791,7 @@
                                         <label>知识产权类型：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProType" th:field="*{IntProType}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -796,7 +799,7 @@
                                         <label>知识产权所有人名称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProOwnerName" th:field="*{IntProOwnerName}">
                                     </div>
                                 </div>
                             </div>
@@ -807,7 +810,7 @@
                                         <label>出质登记机构：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProProveOrg" th:field="*{IntProProveOrg}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -815,7 +818,7 @@
                                         <label>产权专利号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProPatentNumber" th:field="*{IntProPatentNumber}">
                                     </div>
                                 </div>
                             </div>
@@ -826,7 +829,7 @@
                                         <label>产权登记机构：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProRegOrg" th:field="*{IntProRegOrg}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -834,7 +837,7 @@
                                         <label>产权登记时间：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProRegDate" th:field="*{IntProRegDate}">
                                     </div>
                                 </div>
                             </div>
@@ -845,7 +848,7 @@
                                         <label>核准号的保护时间：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProtedDate" th:field="*{IntProtedDate}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -853,7 +856,7 @@
                                         <label>出质期限：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProProveDate" th:field="*{IntProProveDate}">
                                     </div>
                                 </div>
                             </div>
@@ -864,7 +867,7 @@
                                         <label>质押登记编号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProPledgeNo" th:field="*{IntProPledgeNo}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -872,7 +875,7 @@
                                         <label>登记机构：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="IntProOrg" th:field="*{IntProOrg}">
                                     </div>
                                 </div>
                             </div>
@@ -904,7 +907,7 @@
                                         <label>订货单位：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadOrg" th:field="*{LadOrg}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -912,7 +915,7 @@
                                         <label>提货（自提）单号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadNo" th:field="*{LadNo}">
                                     </div>
                                 </div>
                             </div>
@@ -923,7 +926,7 @@
                                         <label>合同号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadContractNo" th:field="*{LadContractNo}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -931,7 +934,7 @@
                                         <label>商品编码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadCommodityCoding" th:field="*{LadCommodityCoding}">
                                     </div>
                                 </div>
                             </div>
@@ -942,7 +945,7 @@
                                         <label>发货单位：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadShippingUnit" th:field="*{LadShippingUnit}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -950,7 +953,7 @@
                                         <label>货品名称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadGoods" th:field="*{LadGoods}">
                                     </div>
                                 </div>
                             </div>
@@ -961,7 +964,7 @@
                                         <label>规则：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadRule" th:field="*{LadRule}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -969,7 +972,7 @@
                                         <label>材质：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadCharacter" th:field="*{LadCharacter}">
                                     </div>
                                 </div>
                             </div>
@@ -980,7 +983,7 @@
                                         <label>提货数量：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadDeliveryNumber" th:field="*{LadDeliveryNumber}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -988,7 +991,7 @@
                                         <label>提货地点：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadDeliveryAddress" th:field="*{LadDeliveryAddress}">
                                     </div>
                                 </div>
                             </div>
@@ -998,7 +1001,7 @@
                                         <label>开票人：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="LadDrawer" th:field="*{LadDrawer}">
                                     </div>
                                 </div>
                             </div>
@@ -1030,7 +1033,7 @@
                                         <label>票据种类：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesType" th:field="*{NotesType}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1038,7 +1041,7 @@
                                         <label>票据号码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesNO" th:field="*{NotesNO}">
                                     </div>
                                 </div>
                             </div>
@@ -1049,7 +1052,7 @@
                                         <label>票据金额：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesAmount" th:field="*{NotesAmount}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1057,7 +1060,7 @@
                                         <label>票据开出行：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesBank" th:field="*{NotesBank}">
                                     </div>
                                 </div>
                             </div>
@@ -1068,7 +1071,7 @@
                                         <label>票据签发日期：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesSignedDate" th:field="*{NotesSignedDate}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1076,7 +1079,7 @@
                                         <label>票据到期日期：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesLastDate" th:field="*{NotesLastDate}">
                                     </div>
                                 </div>
                             </div>
@@ -1086,7 +1089,7 @@
                                         <label>存放地：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="NotesAddress" th:field="*{NotesAddress}">
                                     </div>
                                 </div>
                             </div>
@@ -1118,7 +1121,7 @@
                                         <label>持股人名称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockOwnerName" th:field="*{StockOwnerName}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1126,7 +1129,7 @@
                                         <label>股份数量：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockNumber" th:field="*{StockNumber}">
                                     </div>
                                 </div>
                             </div>
@@ -1137,7 +1140,7 @@
                                         <label>股权证编号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockNo" th:field="*{StockNo}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1145,7 +1148,7 @@
                                         <label>股份性质：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockNature" th:field="*{StockNature}">
                                     </div>
                                 </div>
                             </div>
@@ -1156,7 +1159,7 @@
                                         <label>持有人名称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockHoldersName" th:field="*{StockHoldersName}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1164,7 +1167,7 @@
                                         <label>证券账户号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockSecuritiesAccountNo" th:field="*{StockSecuritiesAccountNo}">
                                     </div>
                                 </div>
                             </div>
@@ -1175,7 +1178,7 @@
                                         <label>开户机构：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockInstitutions" th:field="*{StockInstitutions}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1183,7 +1186,7 @@
                                         <label>证券质押登记编号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockRegNo" th:field="*{StockRegNo}">
                                     </div>
                                 </div>
                             </div>
@@ -1193,7 +1196,7 @@
                                         <label>出质人股票账户号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockInvestorsAccount" th:field="*{StockInvestorsAccount}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1201,7 +1204,7 @@
                                         <label>证券代码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockCode" th:field="*{StockCode}">
                                     </div>
                                 </div>
                             </div>
@@ -1211,7 +1214,7 @@
                                         <label>质押证券简称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockPledgeRef" th:field="*{StockPledgeRef}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1219,7 +1222,7 @@
                                         <label>质押证券数量：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockPledgeNumber" th:field="*{StockPledgeNumber}">
                                     </div>
                                 </div>
                             </div>
@@ -1230,7 +1233,7 @@
                                         <label>股份性质证券质押登记日期：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="StockPledgeRegDate" th:field="*{StockPledgeRegDate}">
                                     </div>
                                 </div>
                             </div>
@@ -1262,7 +1265,7 @@
                                         <label>仓单所有人（出质人）：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrOwner" th:field="*{WrOwner}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1270,7 +1273,7 @@
                                         <label>仓储单位：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrOrg" th:field="*{WrOrg}">
                                     </div>
                                 </div>
                             </div>
@@ -1281,7 +1284,7 @@
                                         <label>仓单编号：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrNo" th:field="*{WrNo}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1289,7 +1292,7 @@
                                         <label>仓储名称：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrName" th:field="*{WrName}">
                                     </div>
                                 </div>
                             </div>
@@ -1300,7 +1303,7 @@
                                         <label>规格：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrStandard" th:field="*{WrStandard}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1308,7 +1311,7 @@
                                         <label>单位：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrUnit" th:field="*{WrUnit}">
                                     </div>
                                 </div>
                             </div>
@@ -1319,7 +1322,7 @@
                                         <label>数量：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrNumber" th:field="*{WrNumber}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1327,7 +1330,7 @@
                                         <label>交货员：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrDeliveryStaff" th:field="*{WrDeliveryStaff}">
                                     </div>
                                 </div>
                             </div>
@@ -1337,7 +1340,7 @@
                                         <label>验收员（库管员）：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrAcceptanceStaff" th:field="*{WrAcceptanceStaff}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1345,7 +1348,7 @@
                                         <label>货物价值：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrGoodsValue" th:field="*{WrGoodsValue}">
                                     </div>
                                 </div>
                             </div>
@@ -1355,7 +1358,7 @@
                                         <label>仓储费用：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrStorageCosts" th:field="*{WrStorageCosts}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1363,7 +1366,7 @@
                                         <label>货物是否保险：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrHaveInsurance" th:field="*{WrHaveInsurance}">
                                     </div>
                                 </div>
                             </div>
@@ -1374,7 +1377,7 @@
                                         <label>保险生效日：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrInsuranceBeginDate" th:field="*{WrInsuranceBeginDate}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1382,7 +1385,7 @@
                                         <label>保险到期日：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="WrInsuranceEndDate" th:field="*{WrInsuranceEndDate}">
                                     </div>
                                 </div>
                             </div>
@@ -1414,7 +1417,7 @@
                                         <label>国债种类：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_Kind" th:field="*{ND_Kind}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1422,7 +1425,7 @@
                                         <label>凭证号码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_ID" th:field="*{ND_ID}">
                                     </div>
                                 </div>
                             </div>
@@ -1433,7 +1436,7 @@
                                         <label> 国债利率(%)：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_Rate" th:field="*{ND_Rate}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1441,7 +1444,7 @@
                                         <label>国债期限：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_Deadline" th:field="*{ND_Deadline}">
                                     </div>
                                 </div>
                             </div>
@@ -1452,7 +1455,7 @@
                                         <label>权利年收益金额：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_Amoun" >
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1460,7 +1463,7 @@
                                         <label>国债承销行：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_Bank" th:field="*{ND_Bank}">
                                     </div>
                                 </div>
                             </div>
@@ -1471,7 +1474,7 @@
                                         <label>国债认购日期：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_BeginDate" th:field="*{ND_BeginDate}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1479,7 +1482,7 @@
                                         <label>国债到期日期：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_EndDate" th:field="*{ND_EndDate}">
                                     </div>
                                 </div>
                             </div>
@@ -1490,7 +1493,7 @@
                                         <label>存放地：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="ND_Address" th:field="*{ND_Address}">
                                     </div>
                                 </div>
                             </div>
@@ -1523,7 +1526,7 @@
                                         <label>单位：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="Other_Unit" th:field="*{Other_Unit}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -1531,7 +1534,7 @@
                                         <label>数量：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="Other_Number" th:field="*{Other_Number}">
                                     </div>
                                 </div>
                             </div>
@@ -1541,7 +1544,7 @@
                                         <label>所在地：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control">
+                                        <input class="form-control" name="Other_Addres" >
                                     </div>
                                 </div>
                             </div>
