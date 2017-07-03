@@ -6,15 +6,19 @@ import com.ecsolutions.entity.Credit_Entity;
  * Created by Administrator on 2017/6/28.
  */
 public interface Credit_Service {
-    Credit_Entity getCreditInfo();
+    Credit_Entity getPopupInfo();
 
-    boolean validateFinancing(String financing);
+    Credit_Entity getNewCreditInfo(String customerCode);
 
-    boolean validateLineGrade(String lineGrade);
+    Credit_Entity getOldCreditInfo(String customerCode, String lineNo);
 
-    boolean validateCollateralMethod(String collateralMethod);
-
-    boolean validateDocumentMark(String documentMark);
-
-    boolean validateCountryRisk(String countryRisk);
+//    boolean validateFinancing(String financing);
+//
+//    boolean validateLineGrade(String lineGrade);
+//
+//    boolean validateCollateralMethod(String collateralMethod);
+//
+//    boolean validateDocumentMark(String documentMark);
+//
+//    boolean validateCountryRisk(String countryRisk);
 }

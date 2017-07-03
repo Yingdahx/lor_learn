@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,90 +24,126 @@ public class Credit_ServiceImpl implements  Credit_Service {
     }
 
     @Override
-    public Credit_Entity getCreditInfo(){
+    public Credit_Entity getPopupInfo(){
         Credit_Entity result = new Credit_Entity();
-        List<String> financings = new ArrayList<>();
-        financings.add("产品1");
-        financings.add("产品2");
-        financings.add("产品3");
-        result.setFinancingList(financings);
-
-        result.setLineNumber("LN2333");
-        result.setLineStatus("等候");
-        result.setUsedLineAmount(new BigDecimal(0.00));
-        result.setRemainingLineAmount(new BigDecimal(0.00));
-        result.setFreezingLineAmount(new BigDecimal(0.00));
-        result.setAvailableLineAmount(new BigDecimal(0.00));
+        List<HashMap<String,String>> lineGradeList = credit_dao.getLineGradeList();
+        List<HashMap<String,String>> currencyList = credit_dao.getCurrencyList();
+        List<HashMap<String,String>> documentMarkList = credit_dao.getDocumentMarkList();
+        List<HashMap<String,String>> countryRiskList = credit_dao.getCountryRiskList();
+        result.setLineGradeList(lineGradeList);
+        result.setCurrencyList(currencyList);
+        result.setDocumentMarkList(documentMarkList);
+        result.setCountryRiskList(countryRiskList);
         return result;
     }
 
-    public boolean validateFinancing(String financing){
-        try{
-            List<String> data = credit_dao.findFinancing(financing);
-            if(data.size()>0)
-            {
-                return true;
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
+    @Override
+    public Credit_Entity getNewCreditInfo(String customerCode){
+        Credit_Entity result = getPopupInfo();
+        String lineNo = "00001";
+        List<String> lineNumberList = credit_dao.getLineNumberList(customerCode);
+        if (lineNumberList != null && lineNumberList.size() > 0){
+            lineNo = calculateLineNo(lineNumberList.get(lineNumberList.size() - 1));
         }
-        return false;
+        result.setLineNumber(lineNo);
+        result.setLineStatus("等候");
+        result.setUsedLineAmount(new BigDecimal(0.00));
+        result.setFreezingLineAmount(new BigDecimal(0.00));
+        return result;
     }
 
-    public boolean validateLineGrade(String lineGrade){
-        try{
-            List<String> data = credit_dao.findLineGrade(lineGrade);
-            if(data.size()>0)
-            {
-                return true;
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return false;
+    @Override
+    public Credit_Entity getOldCreditInfo(String customerCode, String lineNo){
+        Credit_Entity result = new Credit_Entity();
+        return result;
     }
 
-    public boolean validateCollateralMethod(String collateralMethod){
-        try{
-            List<String> data = credit_dao.findCollateralMethod(collateralMethod);
-            if(data.size()>0)
-            {
-                return true;
-            }
-        }catch(Exception e)
-        {
+    private String calculateLineNo(String lineNo){
+        String newLineNo = "";
+        try {
+            newLineNo = fitToLength(String.valueOf(Integer.parseInt(lineNo) + 1),5);
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        return false;
+        return newLineNo;
     }
 
-    public boolean validateDocumentMark(String documentMark){
-        try{
-            List<String> data = credit_dao.findDocumentMark(documentMark);
-            if(data.size()>0)
-            {
-                return true;
+    private String fitToLength(String str, int length){
+        if (str.length() < length) {
+            for (int i = str.length(); i < length; ++i) {
+                str = "0" + str;
             }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
         }
-        return false;
+        return str;
     }
 
-    public boolean validateCountryRisk(String countryRisk){
-        try{
-            List<String> data = credit_dao.findCountryRisk(countryRisk);
-            if(data.size()>0)
-            {
-                return true;
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return false;
-    }
+//    public boolean validateFinancing(String financing){
+//        try{
+//            List<String> data = credit_dao.findFinancing(financing);
+//            if(data.size()>0)
+//            {
+//                return true;
+//            }
+//        }catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
+//
+//    public boolean validateLineGrade(String lineGrade){
+//        try{
+//            List<String> data = credit_dao.findLineGrade(lineGrade);
+//            if(data.size()>0)
+//            {
+//                return true;
+//            }
+//        }catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
+//
+//    public boolean validateCollateralMethod(String collateralMethod){
+//        try{
+//            List<String> data = credit_dao.findCollateralMethod(collateralMethod);
+//            if(data.size()>0)
+//            {
+//                return true;
+//            }
+//        }catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
+//
+//    public boolean validateDocumentMark(String documentMark){
+//        try{
+//            List<String> data = credit_dao.findDocumentMark(documentMark);
+//            if(data.size()>0)
+//            {
+//                return true;
+//            }
+//        }catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
+//
+//    public boolean validateCountryRisk(String countryRisk){
+//        try{
+//            List<String> data = credit_dao.findCountryRisk(countryRisk);
+//            if(data.size()>0)
+//            {
+//                return true;
+//            }
+//        }catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
 }

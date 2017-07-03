@@ -23,6 +23,12 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Select2 -->
+    <!--<link rel="stylesheet" href="../vendor/select2/select2.min.css">-->
+
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="../vendor/datepicker/datepicker3.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,9 +60,11 @@
                                 <label>融资：</label>
                             </div>
                             <div class="col-lg-7">
-                                <select class="form-control" name="financing" id="financing">
+                                <select class="form-control select2" name="financing" id="financing">
                                     <option disabled selected value></option>
-                                    <option th:each="financing:${credit_info.financingList}" th:value="${financing}" th:text="${financing}"></option>
+                                    <!--<option th:each="financing:${credit_info.financingList}" th:value="${financing}" th:text="${financing}"></option>-->
+                                    <option value="公司类贷款">公司类贷款</option>
+                                    <option value="零售类贷款">零售类贷款</option>
                                 </select>
                             </div>
                         </div>
@@ -103,7 +111,7 @@
                                 <label>额度描述：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" name="lineDescription" id="lineDescription">
+                                <input class="form-control" name="lineDescription" id="lineDescription" maxlength="50">
                             </div>
                         </div>
                     </div>
@@ -115,9 +123,9 @@
                                 <label>额度等级：</label>
                             </div>
                             <div class="col-lg-7">
-                                <select class="form-control" name="lineGrade" id="lineGrade">
+                                <select class="form-control select2" name="lineGrade" id="lineGrade">
                                     <option disabled selected value></option>
-                                    <option th:each="lineGrade:${credit_info.lineGradeList}" th:value="${lineGrade}" th:text="${lineGrade}"></option>
+                                    <option th:each="lineGrade:${credit_info.lineGradeList}" th:value="${lineGrade.linerrflag}" th:text="${lineGrade.flagtext}"></option>
                                 </select>
                             </div>
                         </div>
@@ -128,7 +136,7 @@
                                 <label>额度状况：</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control" name="lineStatus" disabled>
+                                <select class="form-control select2" name="lineStatus" disabled>
                                     <option disabled selected value></option>
                                     <option value="等候" th:selected="${credit_info.lineStatus == '等候'}">等候</option>
                                     <option value="使用" th:selected="${credit_info.lineStatus == '使用'}">使用</option>
@@ -144,9 +152,9 @@
                                 <label>币种：</label>
                             </div>
                             <div class="col-lg-7">
-                                <select class="form-control" name="currency" id="currency">
+                                <select class="form-control select2" name="currency" id="currency">
                                     <option disabled selected value></option>
-                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency}" th:text="${currency}"></option>
+                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency.ccyflag}" th:text="${currency.flagtext}"></option>
                                 </select>
                             </div>
                         </div>
@@ -157,7 +165,7 @@
                                 <label>额度金额：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" name="lineAmount" id="lineAmount">
+                                <input type="number" class="form-control" name="lineAmount" id="lineAmount" step="0.01" max="9999999999999.99" min="0">
                             </div>
                         </div>
                     </div>
@@ -223,7 +231,7 @@
                                 <label>[商][小][微]承兑保证金：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" value="0" name="acceptanceBail">
+                                <input type="number" class="form-control" value="0" name="acceptanceBail" step="0.01" max="9999999999999.99" min="0">
                             </div>
                         </div>
                     </div>
@@ -235,7 +243,7 @@
                                 <label>[商]保函保证金：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" value="0" name="LGBail">
+                                <input type="number" class="form-control" value="0" name="LGBail" step="0.01" max="9999999999999.99" min="0">
                             </div>
                         </div>
                     </div>
@@ -245,7 +253,7 @@
                                 <label>[商]信用证保证金：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" value="0" name="LCBail">
+                                <input type="number" class="form-control" value="0" name="LCBail" step="0.01" max="9999999999999.99" min="0">
                             </div>
                         </div>
                     </div>
@@ -257,9 +265,18 @@
                                 <label>抵押担保方式：</label>
                             </div>
                             <div class="col-lg-7">
-                                <select class="form-control" name="collateralMethod" id="collateralMethod">
+                                <select class="form-control select2" name="collateralMethod" id="collateralMethod">
                                     <option disabled selected value></option>
-                                    <option th:each="collateralMethod:${credit_info.collateralMethodList}" th:value="${collateralMethod}" th:text="${collateralMethod}"></option>
+                                    <!--<option th:each="collateralMethod:${credit_info.collateralMethodList}" th:value="${collateralMethod}" th:text="${collateralMethod}"></option>-->
+                                    <option value="信用">信用</option>
+                                    <option value="保证">保证</option>
+                                    <option value="抵押">抵押</option>
+                                    <option value="质押">质押</option>
+                                    <option value="抵押+质押">抵押+质押</option>
+                                    <option value="抵押+保证">抵押+保证</option>
+                                    <option value="质押+保证">质押+保证</option>
+                                    <option value="抵押+质押+保证">抵押+质押+保证</option>
+                                    <option value="全额保证金">全额保证金</option>
                                 </select>
                             </div>
                         </div>
@@ -270,9 +287,9 @@
                                 <label>文档标示：</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control" name="documentMark" id="documentMark">
+                                <select class="form-control select2" name="documentMark" id="documentMark">
                                     <option disabled selected value></option>
-                                    <option th:each="documentMark:${credit_info.documentMarkList}" th:value="${documentMark}" th:text="${documentMark}"></option>
+                                    <option th:each="documentMark:${credit_info.documentMarkList}" th:value="${documentMark.condindflag}" th:text="${documentMark.flagtext}"></option>
                                 </select>
                             </div>
                         </div>
@@ -285,7 +302,12 @@
                                 <label>创建日期：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="createDate" id="createDate">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="date" class="form-control pull-right datepicker"  name="createDate" id="createDate">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -295,7 +317,7 @@
                                 <label>循环：</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control" name="loopFlag" id="loopFlag">
+                                <select class="form-control select2" name="loopFlag" id="loopFlag">
                                     <option disabled selected value></option>
                                     <option value="Y">Y</option>
                                     <option value="N">N</option>
@@ -311,7 +333,12 @@
                                 <label>到期日期：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="dueDate" id="dueDate">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="date" class="form-control pull-right datepicker"  name="dueDate" id="dueDate">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -321,9 +348,9 @@
                                 <label>国别风险：</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control" name="countryRisk" id="countryRisk">
+                                <select class="form-control select2" name="countryRisk" id="countryRisk">
                                     <option disabled selected value></option>
-                                    <option th:each="countryRisk:${credit_info.countryRiskList}" th:value="${countryRisk}" th:text="${countryRisk}"></option>
+                                    <option th:each="countryRisk:${credit_info.countryRiskList}" th:value="${countryRisk.code}" th:text="${countryRisk.name}"></option>
                                 </select>
                             </div>
                         </div>
@@ -336,7 +363,7 @@
                                 <label>目的：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="remark">
+                                <input class="form-control" name="remark" maxlength="50">
                             </div>
                         </div>
                     </div>
@@ -350,7 +377,7 @@
                                 <label>原始额：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="originalAmount">
+                                <input type="number" class="form-control" name="originalAmount" step="0.01" max="9999999999999.99" min="0">
                             </div>
                         </div>
                     </div>
@@ -383,7 +410,22 @@
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
 
+<!-- Select2 -->
+<!--<script src="../vendor/select2/select2.full.min.js"></script>-->
+
+<!-- bootstrap datepicker -->
+<script src="../vendor/datepicker/bootstrap-datepicker.js"></script>
+
 <script>
+//    $(function () {
+//        //Initialize Select2 Elements
+//        $(".select2").select2();
+//
+//        //Date picker
+//        $('.datepicker').datepicker({
+//            autoclose: true
+//        });
+//    });
     function check()
     {
         $('.row select').removeAttr("style");
