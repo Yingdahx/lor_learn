@@ -1,32 +1,25 @@
 package com.ecsolutions.entity;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/6/29.
  */
 public class Credit_Entity {
-    private List<String> financingList;
+//    private List<String> financingList;
     private String lineNumber;
-    private List<String> lineGradeList;
+    private List<HashMap<String,String>> lineGradeList;
     private String lineStatus;
-    private List<String> currencyList;
+    private List<HashMap<String,String>> currencyList;
     private BigDecimal usedLineAmount;
     private BigDecimal remainingLineAmount;
     private BigDecimal freezingLineAmount;
     private BigDecimal availableLineAmount;
-    private List<String> collateralMethodList;
-    private List<String> documentMarkList;
-    private List<String> countryRiskList;
-
-    public List<String> getFinancingList() {
-        return financingList;
-    }
-
-    public void setFinancingList(List<String> financingList) {
-        this.financingList = financingList;
-    }
+//    private List<String> collateralMethodList;
+    private List<HashMap<String,String>> documentMarkList;
+    private List<HashMap<String,String>> countryRiskList;
 
     public String getLineNumber() {
         return lineNumber;
@@ -36,11 +29,11 @@ public class Credit_Entity {
         this.lineNumber = lineNumber;
     }
 
-    public List<String> getLineGradeList() {
+    public List<HashMap<String, String>> getLineGradeList() {
         return lineGradeList;
     }
 
-    public void setLineGradeList(List<String> lineGradeList) {
+    public void setLineGradeList(List<HashMap<String, String>> lineGradeList) {
         this.lineGradeList = lineGradeList;
     }
 
@@ -52,11 +45,11 @@ public class Credit_Entity {
         this.lineStatus = lineStatus;
     }
 
-    public List<String> getCurrencyList() {
+    public List<HashMap<String, String>> getCurrencyList() {
         return currencyList;
     }
 
-    public void setCurrencyList(List<String> currencyList) {
+    public void setCurrencyList(List<HashMap<String, String>> currencyList) {
         this.currencyList = currencyList;
     }
 
@@ -92,27 +85,19 @@ public class Credit_Entity {
         this.availableLineAmount = availableLineAmount;
     }
 
-    public List<String> getCollateralMethodList() {
-        return collateralMethodList;
-    }
-
-    public void setCollateralMethodList(List<String> collateralMethodList) {
-        this.collateralMethodList = collateralMethodList;
-    }
-
-    public List<String> getDocumentMarkList() {
+    public List<HashMap<String, String>> getDocumentMarkList() {
         return documentMarkList;
     }
 
-    public void setDocumentMarkList(List<String> documentMarkList) {
+    public void setDocumentMarkList(List<HashMap<String, String>> documentMarkList) {
         this.documentMarkList = documentMarkList;
     }
 
-    public List<String> getCountryRiskList() {
+    public List<HashMap<String, String>> getCountryRiskList() {
         return countryRiskList;
     }
 
-    public void setCountryRiskList(List<String> countryRiskList) {
+    public void setCountryRiskList(List<HashMap<String, String>> countryRiskList) {
         this.countryRiskList = countryRiskList;
     }
 }

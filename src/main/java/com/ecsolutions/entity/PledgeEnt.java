@@ -131,7 +131,7 @@ public class PledgeEnt extends BaseEnt {
     private String ND_ID                          ;
     private Float ND_Rate                        ;
     private float ND_Deadline                    ;
-    private float ND_Amount                      ;
+    private float NDAmount;
     private String ND_Bank                        ;
     private String ND_BeginDate                   ;
     private String ND_EndDate                     ;
@@ -263,7 +263,7 @@ public class PledgeEnt extends BaseEnt {
     public String   getND_ID                     (){  return   ND_ID                       ;}
     public Float    getND_Rate                   (){  return   ND_Rate                     ;}
     public float    getND_Deadline               (){  return   ND_Deadline                 ;}
-    public float    getND_Amount                 (){  return   ND_Amount                   ;}
+    public float    getNDAmount                 (){  return NDAmount;}
     public String   getND_Bank                   (){  return   ND_Bank                     ;}
     public String   getND_BeginDate              (){  return   ND_BeginDate                ;}
     public String   getND_EndDate                (){  return   ND_EndDate                  ;}
@@ -395,7 +395,7 @@ public class PledgeEnt extends BaseEnt {
     public void  setND_ID                     (String  tmpND_ID                     ){    ND_ID                     =tmpND_ID                     ;}
     public void  setND_Rate                   (Float   tmpND_Rate                   ){    ND_Rate                   =tmpND_Rate                   ;}
     public void  setND_Deadline               (float   tmpND_Deadline               ){    ND_Deadline               =tmpND_Deadline               ;}
-    public void  setND_Amount                 (float   tmpND_Amount                 ){    ND_Amount                 =tmpND_Amount                 ;}
+    public void setNDAmount(float   tmpND_Amount                 ){    NDAmount =tmpND_Amount                 ;}
     public void  setND_Bank                   (String  tmpND_Bank                   ){    ND_Bank                   =tmpND_Bank                   ;}
     public void  setND_BeginDate              (String  tmpND_BeginDate              ){    ND_BeginDate              =tmpND_BeginDate              ;}
     public void  setND_EndDate                (String  tmpND_EndDate                ){    ND_EndDate                =tmpND_EndDate                ;}

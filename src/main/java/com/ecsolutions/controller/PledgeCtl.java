@@ -1,17 +1,12 @@
 package com.ecsolutions.controller;
 
-import com.ecsolutions.entity.Apply_entity;
 import com.ecsolutions.entity.PledgeEnt;
+import com.ecsolutions.service.Pledge_Service;
+import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import com.ecsolutions.service.Pledge_Service;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.Console;
-import java.util.List;
 
 /**
  * Created by tim on 2017/6/27.
@@ -53,7 +48,7 @@ public class PledgeCtl {
     {
         System.out.println("post call");
         model.addAttribute("pleage_entity", pleage_entity);
-
+        TransferClient.transfer(model);
         return "Pledge/PledgeOne";
     }
 

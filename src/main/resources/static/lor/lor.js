@@ -8,6 +8,10 @@ function getProjectName()
     var index=lcoUrl.indexOf("/",1);
     //alert(index);
   var projectName=lcoUrl.substr(0,index);
+  if(projectName=="/vendor")
+  {
+      projectName="";
+  }
     //alert(projectName);
     return projectName;
 }
