@@ -50,7 +50,7 @@ public class TransferClient {
                 popupWebServiceAddress += "/";
             }
             String address ="http://localhost:8001/WebServiceProject/services/Transfer"; //"http://localhost:8001/WebServiceProject/services/Transfer?wsdl"; //popupWebServiceAddress + "OCRService?wsdl";
-            address="http://localhost:8080/WebServiceProject/services/Transfer";
+            address="http://192.1.6.34:8080/WebServiceProject/services/Transfer";
             EndpointReference epr = new EndpointReference(address);
             options.setTo(epr);
             QName qname = new QName(popupWebServiceDefaultNameSpace, "transferData");
