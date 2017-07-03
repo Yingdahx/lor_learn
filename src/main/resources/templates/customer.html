@@ -88,7 +88,7 @@
                             <label>客户经理：</label>
                         </div>
                         <div class="col-lg-6">
-                            <input class="form-control" placeholder="代码名称" name="customerManager" th:field="*{customerManager}" required>
+                            <input class="form-control" placeholder="代码名称" name="customerManager" th:field="*{customerManager}" required maxlength="8">
                         </div>
                         <div class="col-lg-2">
                             <button type="button" class="btn btn-default">查询</button>
@@ -111,7 +111,7 @@
                                             <label>证件类型：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{idType}" name="idType">
+                                            <select class="form-control" selected="" th:field="*{idType}" name="idType" required maxlength="2">
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -121,15 +121,15 @@
                                             <label>证件号码：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{idNum}" name="idNum">
+                                            <input class="form-control" th:field="*{idNum}" name="idNum" required maxlength="20">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="col-lg-4">
-                                            <label>请重复输入 证件号码：</label>
+                                            <label>请重复输入 证件号码：</label >
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{idNum2}" name="idNum2">
+                                            <input class="form-control" th:field="*{idNum2}" name="idNum2" required maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                                             <label>中文名字：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{chineseName}" name="chineseName">
+                                            <input class="form-control" th:field="*{chineseName}" name="chineseName" required maxlength="35">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -147,7 +147,7 @@
                                             <label>英文名字：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{engName}" name="engName">
+                                            <input class="form-control" th:field="*{engName}" name="engName" required maxlength="50">
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                                             <label>国籍：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{nationality}" name="nationality">
+                                            <select class="form-control" selected="" th:field="*{nationality}" name="nationality" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -178,7 +178,7 @@
                                             <label>出生日期：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{birthday}" name="birthday">
+                                            <input class="form-control" th:field="*{birthday}" name="birthday" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -186,7 +186,7 @@
                                             <label>性别：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{sex}" name="sex">
+                                            <input class="form-control" th:field="*{sex}" name="sex" required maxlength="2">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -194,7 +194,7 @@
                                             <label>曾用名：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{formerName}" name="formerName">
+                                            <input class="form-control" th:field="*{formerName}" name="formerName" maxlength="30">
                                         </div>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                                             <label>民族：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{minzu}" name="minzu">
+                                            <input class="form-control" th:field="*{minzu}" name="minzu" maxlength="10">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -212,7 +212,7 @@
                                             <label>政治面貌：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{zzmm}" name="zzmm">
+                                            <input class="form-control" th:field="*{zzmm}" name="zzmm" maxlength="50">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -220,7 +220,7 @@
                                             <label>居民标示：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{juminFlag}" name="juminFlag">
+                                            <select class="form-control" selected="" th:field="*{juminFlag}" name="juminFlag" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -230,7 +230,7 @@
                                             <label>电子邮件：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{email}" name="email">
+                                            <input type="email" class="form-control" th:field="*{email}" name="email" maxlength="35">
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@
                                             <label>婚姻状况：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jtqk_hyzk}" name="jtqk_hyzk">
+                                            <select class="form-control" selected="" th:field="*{jtqk_hyzk}" name="jtqk_hyzk" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -261,7 +261,7 @@
                                             <label>家庭人口：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{jtqk_jtrk}" name="jtqk_jtrk">
+                                            <input type="number" class="form-control" th:field="*{jtqk_jtrk}" name="jtqk_jtrk" maxlength="4">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -269,7 +269,7 @@
                                             <label>居住状况：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jtqk_jzzk}" name="jtqk_jzzk">
+                                            <select class="form-control" selected="" th:field="*{jtqk_jzzk}" name="jtqk_jzzk" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -295,7 +295,7 @@
                                             <label>单位名称：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{gzqk_dwmc}" name="gzqk_dwmc">
+                                            <input class="form-control" th:field="*{gzqk_dwmc}" name="gzqk_dwmc" required maxlength="60">
                                         </div>
                                     </div>
                                 </div>
@@ -305,7 +305,7 @@
                                             <label>单位所属行业 门类：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_ml}" name="gzqk_ml">
+                                            <select class="form-control" selected="" th:field="*{gzqk_ml}" name="gzqk_ml" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -315,7 +315,7 @@
                                             <label>大类：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_dl}" name="gzqk_dl">
+                                            <select class="form-control" selected="" th:field="*{gzqk_dl}" name="gzqk_dl" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -325,7 +325,7 @@
                                             <label>中类：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_zl}" name="gzqk_zl">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zl}" name="gzqk_zl" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -337,7 +337,7 @@
                                             <label>本单位工作起始年份：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{gzqk_qsnf}" name="gzqk_qsnf">
+                                            <input type="number" class="form-control" th:field="*{gzqk_qsnf}" name="gzqk_qsnf" maxlength="4">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -345,7 +345,7 @@
                                             <label>职业：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_zy}" name="gzqk_zy">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zy}" name="gzqk_zy" required>
                                                 <option value=""></option>
                                                 <option value="">国家机关、党群组织、企业、事业单位负责人</option>
                                                 <option value="">专业技术人员</option>
@@ -367,7 +367,7 @@
                                             <label>职务：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_zw}" name="gzqk_zw">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zw}" name="gzqk_zw" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -377,7 +377,7 @@
                                             <label>职称：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_zc}" name="gzqk_zc">
+                                            <select class="form-control" selected="" th:field="*{gzqk_zc}" name="gzqk_zc" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -391,12 +391,12 @@
                                             <label>年收入：</label>
                                         </div>
                                         <div class="col-lg-3">
-                                            <select class="form-control" selected="" th:field="*{gzqk_ccy}" name="gzqk_ccy">
+                                            <select class="form-control" selected="" th:field="*{gzqk_ccy}" name="gzqk_ccy" required >
                                                 <option value=""></option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input class="form-control" th:field="*{gzqk_nsr}" name="gzqk_nsr">
+                                            <input class="form-control" th:field="*{gzqk_nsr}" name="gzqk_nsr" required maxlength="18">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -404,7 +404,7 @@
                                             <label>工资账号：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{gzqk_gzzh}" name="gzqk_gzzh">
+                                            <input class="form-control" th:field="*{gzqk_gzzh}" name="gzqk_gzzh" maxlength="40">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -412,7 +412,7 @@
                                             <label>工资账户开户银行：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{gzqk_khyh}" name="gzqk_khyh">
+                                            <input class="form-control" th:field="*{gzqk_khyh}" name="gzqk_khyh" maxlength="14">
                                         </div>
                                     </div>
 
@@ -434,7 +434,7 @@
                                             <label>最高学历：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jyxx_zgxl}" name="jyxx_zgxl">
+                                            <select class="form-control" selected="" th:field="*{jyxx_zgxl}" name="jyxx_zgxl" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -444,7 +444,7 @@
                                             <label>最高学位：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jyxx_zgxw}" name="jyxx_zgxw">
+                                            <select class="form-control" selected="" th:field="*{jyxx_zgxw}" name="jyxx_zgxw" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -468,7 +468,7 @@
                                         <label>贷款卡编码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" disabled th:field="*{dkkxx_dkkbm}" name="dkkxx_dkkbm">
+                                        <input class="form-control" disabled th:field="*{dkkxx_dkkbm}" name="dkkxx_dkkbm" required maxlength="16">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -476,7 +476,7 @@
                                         <label>请重复录入贷款卡编码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" disabled th:field="*{dkkxx_dkkbm2}" name="dkkxx_dkkbm2">
+                                        <input class="form-control" disabled th:field="*{dkkxx_dkkbm2}" name="dkkxx_dkkbm2" required maxlength="16">
                                     </div>
                                 </div>
                             </div>
@@ -486,8 +486,12 @@
                                         <label>贷款卡状态：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" th:field="*{dkkxx_dkkzt}" name="dkkxx_dkkzt">
+                                        <select class="form-control" selected="" th:field="*{dkkxx_dkkzt}" name="dkkxx_dkkzt" required>
                                             <option value=""></option>
+                                            <option value="">正常</option>
+                                            <option value="">注销</option>
+                                            <option value="">密码不正确</option>
+                                            <option value="">不存在</option>
                                         </select>
                                     </div>
                                 </div>
@@ -496,7 +500,7 @@
                                         <label>贷款卡密码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{dkkxx_dkkmm}" name="dkkxx_dkkmm">
+                                        <input class="form-control" th:field="*{dkkxx_dkkmm}" name="dkkxx_dkkmm" required maxlength="50">
                                     </div>
                                 </div>
                             </div>
@@ -523,24 +527,27 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <label>股权证号：</label>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <select class="form-control" selected="" th:field="*{qtxx_gqzh}" name="qtxx_gqzh">
-                                            <option value=""></option>
-                                        </select>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" th:field="*{qtxx_gqzh}" name="qtxx_gqzh">
                                     </div>
-                                    <div class="col-lg-6">
-                                        <input class="form-control" th:field="*{qtxx_gqzh2}" name="qtxx_gqzh2">
-                                    </div>
+
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="col-lg-4">
                                         <label>投资金额(万元)：</label>
                                     </div>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{qtxx_tzje}" name="qtxx_tzje">
+
+
+                                    <div class="col-lg-3">
+                                        <select class="form-control" selected="" th:field="*{qtxx_tzje}" name="qtxx_tzje" maxLength>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" th:field="*{qtxx_tzje2}" name="qtxx_tzje2" pattern="/(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -551,6 +558,8 @@
                                         <input class="form-control" th:field="*{qtxx_tzrq}" name="qtxx_tzrq">
                                     </div>
                                 </div>
+
+
                             </div>
 
                             <div class="row">
@@ -559,7 +568,7 @@
                                         <label>投资比例(%)：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{qtxx_tzbl}" name="qtxx_tzbl">
+                                        <input class="form-control" th:field="*{qtxx_tzbl}" name="qtxx_tzbl" maxLength="10">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -586,7 +595,7 @@
                                         <label>在我行担任职务：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{qtxx_drzw}" name="qtxx_drzw">
+                                        <input class="form-control" th:field="*{qtxx_drzw}" name="qtxx_drzw" maxlength="50">
                                     </div>
                                 </div>
 
@@ -598,7 +607,7 @@
                                         <label>备注：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <textarea class="form-control" rows="3" th:field="*{qtxx_bz}" name="qtxx_bz"></textarea>
+                                        <textarea class="form-control" rows="3" th:field="*{qtxx_bz}" name="qtxx_bz" maxlength="100"></textarea>
                                     </div>
                                 </div>
 
@@ -622,7 +631,7 @@
                                         <label>国家/地区：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" th:field="*{txdz_country}" name="txdz_country">
+                                        <select class="form-control" selected="" th:field="*{txdz_country}" name="txdz_country" required>
                                             <option value="">-</option>
                                         </select>
                                     </div>
@@ -634,7 +643,7 @@
                                         <label>省/市：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select class="form-control" selected="" th:field="*{txdz_ss}" name="txdz_ss">
+                                        <select class="form-control" selected="" th:field="*{txdz_ss}" name="txdz_ss" required>
                                             <option value="">-</option>
                                         </select>
                                     </div>
@@ -650,9 +659,9 @@
                                         <label>地址：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{txdz_dz1}" name="txdz_dz1">
-                                        <input class="form-control" th:field="*{txdz_dz2}" name="txdz_dz2">
-                                        <input class="form-control" th:field="*{txdz_dz3}" name="txdz_dz3">
+                                        <input class="form-control" th:field="*{txdz_dz1}" name="txdz_dz1" required maxlength="50">
+                                        <input class="form-control" th:field="*{txdz_dz2}" name="txdz_dz2" maxlength="50">
+                                        <input class="form-control" th:field="*{txdz_dz3}" name="txdz_dz3" maxlength="50">
                                     </div>
                                 </div>
                             </div>
@@ -663,7 +672,7 @@
                                         <label>邮编：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{txdz_yb}" name="txdz_yb">
+                                        <input class="form-control" th:field="*{txdz_yb}" name="txdz_yb" required maxlength="50">
                                     </div>
                                 </div>
                             </div>
@@ -673,7 +682,7 @@
                                         <label>住宅电话：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{txdz_tel}" name="txdz_tel">
+                                        <input class="form-control" th:field="*{txdz_tel}" name="txdz_tel" required maxlength="35">
                                     </div>
                                 </div>
                             </div>
@@ -684,7 +693,7 @@
                                         <label>手机号码：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{txdz_mobile}" name="txdz_mobile">
+                                        <input class="form-control" th:field="*{txdz_mobile}" name="txdz_mobile" required maxlength="35">
                                     </div>
                                 </div>
                             </div>
@@ -705,7 +714,7 @@
                                         <label>国家/地区：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" th:field="*{hjdz_country}" name="hjdz_country">
+                                        <select class="form-control" selected="" th:field="*{hjdz_country}" name="hjdz_country" required>
                                             <option value="">-</option>
                                         </select>
                                     </div>
@@ -717,7 +726,7 @@
                                         <label>省/市：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select class="form-control" selected="" th:field="*{hjdz_ss}" name="hjdz_ss">
+                                        <select class="form-control" selected="" th:field="*{hjdz_ss}" name="hjdz_ss" required>
                                             <option value="">-</option>
                                         </select>
                                     </div>
@@ -733,9 +742,9 @@
                                         <label>地址：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{hjdz_dz1}" name="hjdz_dz1">
-                                        <input class="form-control" th:field="*{hjdz_dz2}" name="hjdz_dz2">
-                                        <input class="form-control" th:field="*{hjdz_dz3}" name="hjdz_dz3">
+                                        <input class="form-control" th:field="*{hjdz_dz1}" name="hjdz_dz1" required maxlength="50">
+                                        <input class="form-control" th:field="*{hjdz_dz2}" name="hjdz_dz2" maxlength="50">
+                                        <input class="form-control" th:field="*{hjdz_dz3}" name="hjdz_dz3" maxlength="50">
                                     </div>
                                 </div>
                             </div>
@@ -746,7 +755,7 @@
                                         <label>邮编：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{hjdz_yb}" name="hjdz_yb">
+                                        <input class="form-control" th:field="*{hjdz_yb}" name="hjdz_yb" required maxlength="50">
                                     </div>
                                 </div>
                             </div>
@@ -774,7 +783,7 @@
                                             <label>国家/地区：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{dwdz_country}" name="dwdz_country">
+                                            <select class="form-control" selected="" th:field="*{dwdz_country}" name="dwdz_country" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -786,7 +795,7 @@
                                             <label>省/市：</label>
                                         </div>
                                         <div class="col-lg-4">
-                                            <select class="form-control" selected="" th:field="*{dwdz_ss}" name="dwdz_ss">
+                                            <select class="form-control" selected="" th:field="*{dwdz_ss}" name="dwdz_ss" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -802,9 +811,9 @@
                                             <label>地址：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{dwdz_dz1}" name="dwdz_dz1">
-                                            <input class="form-control" th:field="*{dwdz_dz2}" name="dwdz_dz2">
-                                            <input class="form-control" th:field="*{dwdz_dz3}" name="dwdz_dz3">
+                                            <input class="form-control" th:field="*{dwdz_dz1}" name="dwdz_dz1" required maxlength="50">
+                                            <input class="form-control" th:field="*{dwdz_dz2}" name="dwdz_dz2" maxlength="50">
+                                            <input class="form-control" th:field="*{dwdz_dz3}" name="dwdz_dz3" maxlength="50">
                                         </div>
                                     </div>
                                 </div>
@@ -815,7 +824,7 @@
                                             <label>邮编：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{dwdz_yb}" name="dwdz_yb">
+                                            <input class="form-control" th:field="*{dwdz_yb}" name="dwdz_yb" required maxlength="50">
                                         </div>
                                     </div>
                                 </div>
@@ -825,7 +834,7 @@
                                             <label>单位电话：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{dwdz_tel}" name="dwdz_tel">
+                                            <input class="form-control" th:field="*{dwdz_tel}" name="dwdz_tel" required maxlength="35">
                                         </div>
                                     </div>
                                 </div>
@@ -847,7 +856,7 @@
                                             <label>国家/地区：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jzdz_country}" name="jzdz_country">
+                                            <select class="form-control" selected="" th:field="*{jzdz_country}" name="jzdz_country" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -859,7 +868,7 @@
                                             <label>省/市：</label>
                                         </div>
                                         <div class="col-lg-4">
-                                            <select class="form-control" selected="" th:field="*{jzdz_ss}" name="jzdz_ss">
+                                            <select class="form-control" selected="" th:field="*{jzdz_ss}" name="jzdz_ss" required>
                                                 <option value="">-</option>
                                             </select>
                                         </div>
@@ -875,9 +884,9 @@
                                             <label>地址：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{jzdz_dz1}" name="jzdz_dz1">
-                                            <input class="form-control" th:field="*{jzdz_dz2}" name="jzdz_dz2">
-                                            <input class="form-control" th:field="*{jzdz_dz3}" name="jzdz_dz3">
+                                            <input class="form-control" th:field="*{jzdz_dz1}" name="jzdz_dz1" required maxlength="50">
+                                            <input class="form-control" th:field="*{jzdz_dz2}" name="jzdz_dz2" maxlength="50">
+                                            <input class="form-control" th:field="*{jzdz_dz3}" name="jzdz_dz3" maxlength="50">
                                         </div>
                                     </div>
                                 </div>
@@ -888,7 +897,7 @@
                                             <label>邮编：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{jzdz_yb}" name="jzdz_yb">
+                                            <input class="form-control" th:field="*{jzdz_yb}" name="jzdz_yb" required maxlength="50">
                                         </div>
                                     </div>
                                 </div>
