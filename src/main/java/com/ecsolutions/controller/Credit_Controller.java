@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Administrator on 2017/6/28.
  */
@@ -66,7 +63,7 @@ public class Credit_Controller {
 //        }else {
 //            return "Credit/credit";
 //        }
-        model.addAttribute("credit_entity", credit_entity);
+        model.addAttribute("credit_info", credit_entity);
         TransferClient.transfer(model);
         return "Credit/credit";
     }
