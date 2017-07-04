@@ -23,6 +23,8 @@
     <!-- Custom Fonts -->
     <link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
 
+    <link th:href="@{/vendor/datepicker/datepicker3.css}" rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,7 +61,9 @@
                                         <label>额度号：</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input class="form-control" name="line_no" th:field="*{line_no}" >
+                                        <input class="form-control" name="line_no" th:field="${pleage_entity.line_no}" >
+                                        <div th:if="${#fields.hasErrors('line_no')}" th:errors="${pleage_entity.line_no}" class="alert alert-danger">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +125,8 @@
                                     </div>
                                     <div class="col-lg-5">
                                         <input class="form-control"  name="Value"  th:field="*{Value}">
+                                        <div th:if="${#fields.hasErrors('Value')}" th:errors="*{Value}" class="alert alert-danger">
+                                        </div>
                                     </div>
                             </div>
                             </div>
@@ -151,13 +157,15 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <input class="form-control" name="BankPledgeName" th:field="*{BankPledgeName}">
+                                        <div th:if="${#fields.hasErrors('BankPledgeName')}" th:errors="*{BankPledgeName}" class="alert alert-danger">
+                                        </div>
                                     </div>
 
                                     <div class="col-lg-2">
                                         <label>权属情况：</label>
                                     </div>
                                     <div class="col-lg-3">
-                                        <select class="form-control" selected="" name="BankPledgeOwnerType" th:field="*{BankPledgeOwnerType}" >
+                                        <select id="BankPledgeOwnerType" class="form-control" selected="" name="BankPledgeOwnerType" th:field="*{BankPledgeOwnerType}" >
                                             <option value="0">公有</option>
                                             <option value="1">自有</option>
                                             <option value="2">他有</option>
@@ -171,14 +179,18 @@
                                         <label>质押生效日：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <input class="form-control"  name="BankPledgeEffectiveDate" th:field="*{BankPledgeEffectiveDate}">
+                                        <input id="BankPledgeEffectiveDate" class="form-control"  name="BankPledgeEffectiveDate" th:field="*{BankPledgeEffectiveDate}">
+                                        <div th:if="${#fields.hasErrors('BankPledgeEffectiveDate')}" th:errors="*{BankPledgeEffectiveDate}" class="alert alert-danger">
+                                        </div>
                                     </div>
 
                                     <div class="col-lg-2">
                                         <label>质押到期日：</label>
                                     </div>
                                     <div class="col-lg-3">
-                                        <input class="form-control" name="BankPledgeLastDate" th:field="*{BankPledgeLastDate}">
+                                        <input id="BankPledgeLastDate" class="form-control" name="BankPledgeLastDate" th:field="*{BankPledgeLastDate}">
+                                        <div th:if="${#fields.hasErrors('BankPledgeLastDate')}" th:errors="*{BankPledgeLastDate}" class="alert alert-danger">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -210,8 +222,8 @@
                                         <label>证件类型：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select class="form-control" selected=""　name="pIdTypeId">
-                                            <option>-</option>
+                                        <select class="form-control" selected=""　name="pIdTypeId" th:field="*{pIdTypeId}" >
+                                            <option th:each="tmpType,iterStat : ${pIDTypeText_entity}"   th:value="${tmpType.pidTypeId}" th:text="${tmpType.name}"></option>
                                         </select>
                                     </div>
 
@@ -270,6 +282,8 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <input class="form-control"　name="AccRecProvePerson" th:field="*{AccRecProvePerson}">
+                                        <div th:if="${#fields.hasErrors('AccRecProvePerson')}" th:errors="*{AccRecProvePerson}" class="alert alert-danger">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -278,6 +292,8 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <input class="form-control" name="AccRecOwner" th:field="*{AccRecOwner}">
+                                        <div th:if="${#fields.hasErrors('AccRecOwner')}" th:errors="*{AccRecOwner}" class="alert alert-danger">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -288,11 +304,16 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <select class="form-control" selected="" name="AccRecAmountCCY" >
-                                        <option>-</option>
+                                        <option value="0">-</option>
+                                        <option value="1">RMB</option>
+                                        <option value="2">HKD</option>
+                                        <option value="3">USD</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
                                     <input class="form-control" name="AccRecAmount" th:field="*{AccRecAmount}">
+                                    <div th:if="${#fields.hasErrors('AccRecAmount')}" th:errors="*{AccRecAmount}" class="alert alert-danger">
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -1599,73 +1620,128 @@
 
 <!-- Custom Theme JavaScript -->
 <script th:src="@{/dist/js/sb-admin-2.js}"></script>
+
+<script th:src="@{/vendor/datepicker/bootstrap-datepicker.js}"></script>
+
 <script>
+
+    function ShowData()
+    {
+        $("div[id^='div']").hide();
+        $("#divOwer").hide();
+        var locVal=$("#model1").val();
+        if(locVal=="1")
+        {
+            $("#divReceivables").show();
+        }
+        else if(locVal=="2")
+        {
+            $("#divBankAccount").show();
+        }
+        else  if(locVal=="3")
+        {
+            $("#divCar").show();
+        }
+        if(locVal=="4")
+        {
+            $("#divCDs").show();
+        }
+        else if(locVal=="5")
+        {
+            $("#divclaim").show();
+        }
+        else  if(locVal=="6")
+        {
+            $("#divCharge").show();
+        }
+        else  if(locVal=="7")
+        {
+            $("#divIntellectual").show();
+        }
+        else   if(locVal=="8")
+        {
+            $("#divLading").show();
+        }
+        else  if(locVal=="9")
+        {
+            $("#divTicket").show();
+        }
+        else  if(locVal=="10")
+        {
+            $("#divStock").show();
+        }
+        else  if(locVal=="11")
+        {
+            $("#divWarehouse").show();
+        }
+        else  if(locVal=="12")
+        {
+            $("#divNational").show();
+        }
+        else  if(locVal=="13")
+        {
+            $("#divOther").show();
+        }
+        else
+        {
+            $("#divOwer").show();
+        }
+    }
+
+    function ShowOwerData()
+    {
+        $("#divOwer").hide();
+        var locVal=$("#BankPledgeOwnerType").val();
+        //alert(locVal);
+        if(locVal!="1")
+        {
+            $("#divOwer").show();
+        }
+    }
+
     $(document).ready(function() {
         $("div[id^='div']").hide();
-        $("#divOwer").show();
+        //$("#divOwer").show();
+        ShowData();
+        ShowOwerData();
         $("#model1").change( function(e) {
-
-            $("div[id^='div']").hide();
-            $("#divOwer").hide();
-            var locVal=$("#model1").val();
             //alert(locVal);
-           if(locVal=="1")
-           {
-               $("#divReceivables").show();
-           }
-           else if(locVal=="2")
-            {
-                $("#divBankAccount").show();
-            }
-           else  if(locVal=="3")
-            {
-                $("#divCar").show();
-            }
-            if(locVal=="4")
-            {
-                $("#divCDs").show();
-            }
-            else if(locVal=="5")
-            {
-                $("#divclaim").show();
-            }
-            else  if(locVal=="6")
-            {
-                $("#divCharge").show();
-            }
-            else  if(locVal=="7")
-            {
-                $("#divIntellectual").show();
-            }
-            else   if(locVal=="8")
-            {
-                $("#divLading").show();
-            }
-            else  if(locVal=="9")
-            {
-                $("#divTicket").show();
-            }
-            else  if(locVal=="10")
-            {
-                $("#divStock").show();
-            }
-            else  if(locVal=="11")
-            {
-                $("#divWarehouse").show();
-            }
-            else  if(locVal=="12")
-            {
-                $("#divNational").show();
-            }
-            else  if(locVal=="13")
-            {
-                $("#divOther").show();
-            }
-            else
-            {
-                $("#divOwer").show();
-            }
-        })
+            ShowData();
+        });
+        $("#BankPledgeOwnerType").change( function(e) {
+            ShowOwerData();
+               });
+
+        $('#BankPledgeEffectiveDate').datepicker({
+            format: 'yyyymmdd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        }).on('changeDate',function(ev){
+
+        });
+
+        $('#BankPledgeLastDate').datepicker({
+            format: 'yyyymmdd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        }).on('changeDate',function(ev){
+
+        });
+
+        $('#SignedDate').datepicker({
+            format: 'yyyymmdd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        }).on('changeDate',function(ev){
+
+        });
+
     })
 </script>
 </body>

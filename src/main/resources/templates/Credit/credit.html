@@ -101,7 +101,7 @@
                                 <label>额度号：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="lineNumber" th:value="${credit_info.lineNumber}" disabled>
+                                <input class="form-control" name="lineNumber" id="lineNumber" th:value="${credit_info.lineNumber}" disabled>
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                 <label>额度状况：</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control select2" name="lineStatus" disabled>
+                                <select class="form-control select2" name="lineStatus" id="lineStatus" disabled>
                                     <option disabled selected value></option>
                                     <option value="等候" th:selected="${credit_info.lineStatus == '等候'}">等候</option>
                                     <option value="使用" th:selected="${credit_info.lineStatus == '使用'}">使用</option>
@@ -177,7 +177,7 @@
                                 <label>已用额度：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="usedLineAmount" th:value="${credit_info.usedLineAmount}" disabled>
+                                <input class="form-control" name="usedLineAmount" id="usedLineAmount" th:value="${credit_info.usedLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
                                 <label>余额：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" name="remainingLineAmount" th:value="${credit_info.remainingLineAmount}" disabled>
+                                <input class="form-control" name="remainingLineAmount" id="remainingLineAmount" th:value="${credit_info.remainingLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                                 <label>冻结金额：</label>
                             </div>
                             <div class="col-lg-7">
-                                <input class="form-control" name="freezingLineAmount" th:value="${credit_info.freezingLineAmount}" disabled>
+                                <input class="form-control" name="freezingLineAmount" id="freezingLineAmount" th:value="${credit_info.freezingLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                                 <label>可用额度：</label>
                             </div>
                             <div class="col-lg-8">
-                                <input class="form-control" name="availableLineAmount" th:value="${credit_info.availableLineAmount}" disabled>
+                                <input class="form-control" name="availableLineAmount" id="availableLineAmount" th:value="${credit_info.availableLineAmount}" disabled>
                             </div>
                         </div>
                     </div>
@@ -496,6 +496,12 @@
             $('#countryRisk').focus();
             return false;
         }
+        $("#lineNumber").attr("disabled",false);
+        $("#lineStatus").attr("disabled",false);
+        $("#usedLineAmount").attr("disabled",false);
+        $("#remainingLineAmount").attr("disabled",false);
+        $("#freezingLineAmount").attr("disabled",false);
+        $("#availableLineAmount").attr("disabled",false);
         return true;
     }
 </script>
