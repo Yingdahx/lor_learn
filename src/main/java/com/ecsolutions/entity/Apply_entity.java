@@ -6,7 +6,7 @@ package com.ecsolutions.entity;
 public class Apply_entity {
     private String individualCompanyFlag = "企业";
     private boolean foreign;
-    private String branch = "上海汇茂融资租赁有限公司";
+    private String branch;
     private String customerCode;
     private String customerManager;
 
