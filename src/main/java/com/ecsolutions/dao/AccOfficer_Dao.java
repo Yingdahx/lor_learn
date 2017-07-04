@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AccOfficer_Dao {
-    @Select("Select * from adsuser.accountOfficer")
+    @Select("Select officerId,name from adsuser.accountOfficer")
     @ResultType(AccOfficer_Entity.class)
     AccOfficer_Entity getOfficer();
 }

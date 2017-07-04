@@ -1,8 +1,9 @@
 package com.ecsolutions.entity;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * Created by Administrator on 2017/6/29.
@@ -14,6 +15,9 @@ public class UsageInfo_Get_Entity {
     private String Line_CCY="RMB";
     private String Line_AMT="10000.00";
     private String AvaLine_AMT="10000.00";
+    private List<String> Prod_Type;
+    private List<String> docFlag;
+    private List<HashMap<String,String>> Officer;
 
     public String getLoan_RefNo() {
         return Loan_RefNo;
@@ -63,8 +67,27 @@ public class UsageInfo_Get_Entity {
         AvaLine_AMT = avaLine_AMT;
     }
 
+    public List<String> getProd_Type() {
+        return Prod_Type;
+    }
 
+    public void setProd_Type(List<String> prod_Type) {
+        Prod_Type = prod_Type;
+    }
 
+    public List<String> getDocFlag() {
+        return docFlag;
+    }
 
+    public void setDocFlag(List<String> docFlag) {
+        this.docFlag = docFlag;
+    }
 
+    public List<HashMap<String, String>> getOfficer() {
+        return Officer;
+    }
+
+    public void setOfficer(List<HashMap<String, String>> officer) {
+        Officer = officer;
+    }
 }

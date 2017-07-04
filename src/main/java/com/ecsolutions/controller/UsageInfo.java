@@ -3,6 +3,7 @@ package com.ecsolutions.controller;
 import com.ecsolutions.entity.UsageInfo_Get_Entity;
 import com.ecsolutions.entity.UsageInfo_Save_Entity;
 import com.ecsolutions.service.UsageInfo_Service;
+import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,24 +26,17 @@ public class UsageInfo {
 
     @GetMapping("/UsageInfo")
     public String getUsageInfo(Model model){
-        model.addAttribute("UsageInfo", new UsageInfo_Get_Entity());
+        model.addAttribute("UsageInfo", getservice.getCombineInfo());
 
         return "Usage";
 
     }
 
-/*    @GetMapping("/UsageInfo")
-    public String getUsageInfo(@ModelAttribute String lineno, Model model){
-        model.addAttribute("UsageInfo",getservice.getCombineInfo(lineno));
-
-        return "Usage";
-
-    }*/
-
     @PostMapping("/UsageInfo/Save")
     public String saveUsageInfo(@ModelAttribute UsageInfo_Save_Entity saveEntity,Model model){
         model.addAttribute("UsageInfo", saveEntity);
-        return ("waiting~");
+        TransferClient.transfer(model);
+        return ("Usage");
     }
 
 }

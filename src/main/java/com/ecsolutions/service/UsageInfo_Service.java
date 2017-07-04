@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by Administrator on 2017/6/29.
  */
 public interface UsageInfo_Service {
-    UsageInfo_Get_Entity getCombineInfo(String lineno);
+    UsageInfo_Get_Entity getCombineInfo();
 
     String saveUsageInfo(UsageInfo_Save_Entity saveEntity);
 

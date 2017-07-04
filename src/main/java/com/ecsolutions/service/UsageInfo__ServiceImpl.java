@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2017/6/29.
@@ -17,21 +17,28 @@ import java.util.Map;
 @Service("UsageInfo_Service")
 public class UsageInfo__ServiceImpl implements UsageInfo_Service {
     private UsageInfo_Get_DAO dao;
-    private  UsageInfo_Get_Entity entity;
+
 
 
     @Autowired
-    public UsageInfo__ServiceImpl(){}
+    public UsageInfo__ServiceImpl(UsageInfo_Get_DAO dao){
+        this.dao = dao;
+    }
 
     @Override
-    public UsageInfo_Get_Entity getCombineInfo(String lineno){
+    public UsageInfo_Get_Entity getCombineInfo(){
 
-        setusageinfo(lineno);
-        setproducts();
-        setrate();
-        setcollFlag();
-        setdocFlag();
-        setManagerInfo();
+//        setusageinfo(lineno);
+        UsageInfo_Get_Entity entity=new UsageInfo_Get_Entity();
+        List<String> prods=this.dao.getproducts();
+        entity.setProd_Type(prods);
+
+        List<String> docFlags=this.dao.getcollFlag();
+        entity.setDocFlag(docFlags);
+
+        List<HashMap<String,String>> mng=this.dao.getManagerInfo();
+        entity.setOfficer(mng);
+
         return entity;
     }
 
@@ -46,15 +53,9 @@ public class UsageInfo__ServiceImpl implements UsageInfo_Service {
        // this.entity=dao.getusageinfo(lineno);
     }
 
-    private void  setproducts(){
-        List<String> prods;
-        //prods=dao.getproducts();
-       // this.entity.setProd_types(prods);
-
-    }
 
     private void setrate(){
-        Map<String,BigDecimal> rate;
+
         //rate=dao.getrate();
        // this.entity.setRate(rate);
 
@@ -74,7 +75,7 @@ public class UsageInfo__ServiceImpl implements UsageInfo_Service {
     }
 
     private void setManagerInfo(){
-        Map<String,String> mng;
+
        // mng=dao.getManagerInfo();
        // this.entity.setManagers(mng);
     }
