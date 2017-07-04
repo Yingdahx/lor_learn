@@ -111,8 +111,9 @@
                                             <label>证件类型：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{idType}" name="idType" required maxlength="2">
-                                                <option value="">-</option>
+                                            <select class="form-control" selected=""  name="idType" required maxlength="2">
+                                                <option disabled selected value></option>
+                                                <option th:each="idType:${customer_info.idTypeList}" th:value="${idType.pidTypeId}" th:text="${idType.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -251,8 +252,9 @@
                                             <label>婚姻状况：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jtqk_hyzk}" name="jtqk_hyzk" required>
-                                                <option value=""></option>
+                                            <select class="form-control" selected=""  name="jtqk_hyzk" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="jtqk_hyzk:${customer_info.MaritalStatusList}" th:value="${jtqk_hyzk.maritalStatusId}" th:text="${jtqk_hyzk.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -269,8 +271,9 @@
                                             <label>居住状况：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jtqk_jzzk}" name="jtqk_jzzk" required>
-                                                <option value=""></option>
+                                            <select class="form-control" selected=""  name="jtqk_jzzk" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="jtqk_jzzk:${customer_info.JuzhuStatusList}" th:value="${jtqk_jzzk.typeid}" th:text="${jtqk_jzzk.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -345,17 +348,9 @@
                                             <label>职业：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_zy}" name="gzqk_zy" required>
-                                                <option value=""></option>
-                                                <option value="">国家机关、党群组织、企业、事业单位负责人</option>
-                                                <option value="">专业技术人员</option>
-                                                <option value="">办事人员和有关人员</option>
-                                                <option value="">商业、服务业人员</option>
-                                                <option value="">农、林、牧、渔、水利业生产人员</option>
-                                                <option value="">生产、运输设备操作人员及有关人员</option>
-                                                <option value="">军人</option>
-                                                <option value="">未知</option>
-                                                <option value="">银行业</option>
+                                            <select class="form-control" selected=""  name="gzqk_zy" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="gzqk_zy:${customer_info.ZhiYeList}" th:value="${gzqk_zy.typeid}" th:text="${gzqk_zy.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -367,8 +362,9 @@
                                             <label>职务：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{gzqk_zw}" name="gzqk_zw" required>
-                                                <option value=""></option>
+                                            <select class="form-control" selected=""  name="gzqk_zw" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="gzqk_zw:${customer_info.ZhiWuList}" th:value="${gzqk_zw.typeid}" th:text="${gzqk_zw.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -378,7 +374,8 @@
                                         </div>
                                         <div class="col-lg-8">
                                             <select class="form-control" selected="" th:field="*{gzqk_zc}" name="gzqk_zc" required>
-                                                <option value=""></option>
+                                                <option disabled selected value></option>
+                                                <option th:each="gzqk_zc:${customer_info.ZhiChenList}" th:value="${gzqk_zc.typeid}" th:text="${gzqk_zc.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -392,7 +389,8 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <select class="form-control" selected="" th:field="*{gzqk_ccy}" name="gzqk_ccy" required >
-                                                <option value=""></option>
+                                                <option disabled selected value></option>
+                                                <option th:each="gzqk_ccy:${customer_info.CcyList}" th:value="${gzqk_ccy.ccyid}" th:text="${gzqk_ccy.ccytext}"></option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6">
@@ -434,8 +432,9 @@
                                             <label>最高学历：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jyxx_zgxl}" name="jyxx_zgxl" required>
-                                                <option value=""></option>
+                                            <select class="form-control" selected=""  name="jyxx_zgxl" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="jyxx_zgxl:${customer_info.XueLiList}" th:value="${jyxx_zgxl.educationLevelId}" th:text="${jyxx_zgxl.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -444,8 +443,9 @@
                                             <label>最高学位：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jyxx_zgxw}" name="jyxx_zgxw" required>
-                                                <option value=""></option>
+                                            <select class="form-control" selected=""  name="jyxx_zgxw" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="jyxx_zgxw:${customer_info.XueWeiList}" th:value="${jyxx_zgxw.TypeId}" th:text="${jyxx_zgxw.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -542,8 +542,9 @@
 
 
                                     <div class="col-lg-3">
-                                        <select class="form-control" selected="" th:field="*{qtxx_tzje}" name="qtxx_tzje" maxLength>
-                                            <option value=""></option>
+                                        <select class="form-control" selected=""  name="qtxx_tzje" maxLength>
+                                            <option disabled selected value></option>
+                                            <option th:each="qtxx_tzje:${customer_info.CcyList}" th:value="${qtxx_tzje.ccyid}" th:text="${qtxx_tzje.ccytext}"></option>
                                         </select>
                                     </div>
                                     <div class="col-lg-6">
