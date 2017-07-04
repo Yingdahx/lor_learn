@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -144,7 +144,7 @@
 							<label class="col-md-4">方案类型：</label>
 							<div class="col-md-8">				
 								<select class="form-control select2" name="Prod_Type" required="required">
-								<option>商户担保贷款</option>
+									<option th:each="prod:${UsageInfo.Prod_Type}" th:value="${prod}" th:text="${prod}"></option>
 								</select>
 							</div>
 						</div>
@@ -182,7 +182,7 @@
 						<div class="col-lg-5">
 							<label class="col-md-4">年利率(%)：</label>
 							<div class="col-md-8">				
-							<input type="number" step="0.01" class="form-control" th:value="${UsageInfo.rate.value}" name="Rate" disabled>
+							<input type="number" step="0.01" class="form-control" name="Rate" disabled>
 							</div>
 						</div>		
 					</div>
@@ -278,7 +278,7 @@
 							<label class="col-md-4">文档标示：</label>
 							<div class="col-md-8">				
 								<select class="form-control select2" name="DocFlag" required="required">
-								<option>未完成</option>								
+								<option th:each="docFlag:${UsageInfo.docFlag}" th:value="${docFlag}" th:text="${docFlag}">未完成</option>
 								</select>
 							</div>
 						</div>		
@@ -413,7 +413,7 @@
 								</div>
 								<button name="btn_ACMNG" class="col-sm-2 btn-default" style="padding: 0px;margin:5px">查询</button>
 								<label class="col-sm-2" style="padding: 0px">名称：</label>
-								<label class="col-sm-3" style="padding: 0px; margin-left:-10px" name="Account_MNGName">A001</label>
+								<label class="col-sm-3" style="padding: 0px; margin-left:-10px" name="Account_MNGName" id="Account_MNGName">A001</label>
 							</div>
 						</div>		
 					</div>
@@ -535,6 +535,11 @@
 	function checksubmit(){
 	
 	}
+
+	function fillName(name) {
+
+	    $(Account_MNGName).val(name);
+    }
 	</script>
 </body>
 
