@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Repository
-public interface PledgeDal {
+public interface PledgeDao {
 
     @Select("SELECT * FROM LOANAPPLICANTPLEDGE WHERE TRIM(id) = TRIM(#{id}) ")
     @ResultType(PledgeEnt.class)
