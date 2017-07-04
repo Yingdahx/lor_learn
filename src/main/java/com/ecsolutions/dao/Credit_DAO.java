@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public interface Credit_DAO {
     // for new credit
-    @Select("SELECT DISTINCT lineno FROM adsuser.Loanapplicantfacilityinfo WHERE TRIM(custCode) = TRIM(#{customer_code}))")
+    @Select("SELECT DISTINCT line_no FROM adsuser.Loanapplicantfacilityinfo WHERE LTRIM(RTRIM(custCode)) = LTRIM(RTRIM(#{customer_code})) ORDER BY line_no")
     @ResultType(String.class)
     List<String> getLineNumberList(@Param("customer_code")String customerCode);
 
@@ -23,11 +23,11 @@ public interface Credit_DAO {
 //    @ResultType(String.class)
 //    List<String> getFinancingList();
 
-    @Select("SELECT DISTINCT flagtext, linerrflag FROM dbo.LineRRFlagText WHERE TRIM(localeid) = 1)")
+    @Select("SELECT DISTINCT flagtext, linerrflag FROM dbo.LineRRFlagText WHERE LTRIM(RTRIM(localeid)) = 1 ORDER BY linerrflag")
     @ResultType(HashMap.class)
     List<HashMap<String,String>> getLineGradeList();
 
-    @Select("SELECT DISTINCT flagtext, ccyflag FROM dbo.ccyText WHERE TRIM(localeid) = 1)")
+    @Select("SELECT DISTINCT ccytext, ccyid FROM dbo.ccyText WHERE LTRIM(RTRIM(localeid)) = 1 ORDER BY ccyid")
     @ResultType(HashMap.class)
     List<HashMap<String,String>> getCurrencyList();
 
@@ -35,11 +35,11 @@ public interface Credit_DAO {
 //    @ResultType(String.class)
 //    List<String> getCollateralMethodList();
 
-    @Select("SELECT DISTINCT flagtext, condindflag FROM dbo.CondIndFlagText WHERE TRIM(localeid) = 1)")
+    @Select("SELECT DISTINCT flagtext, condindflag FROM dbo.CondIndFlagText WHERE LTRIM(RTRIM(localeid)) = 1 ORDER BY condindflag")
     @ResultType(HashMap.class)
     List<HashMap<String,String>> getDocumentMarkList();
 
-    @Select("SELECT DISTINCT name, code FROM adsuser.CountryText WHERE TRIM(localeid) = 1)")
+    @Select("SELECT DISTINCT name, code FROM adsuser.CountryText WHERE LTRIM(RTRIM(localeid)) = 1 ORDER BY code")
     @ResultType(HashMap.class)
     List<HashMap<String,String>> getCountryRiskList();
 
