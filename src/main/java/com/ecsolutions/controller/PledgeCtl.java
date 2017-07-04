@@ -1,12 +1,20 @@
 package com.ecsolutions.controller;
 
+import com.ecsolutions.Validators.PledgeValidate;
 import com.ecsolutions.entity.PledgeEnt;
 import com.ecsolutions.service.Pledge_Service;
 import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.DataBinder;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * Created by tim on 2017/6/27.
@@ -22,6 +30,15 @@ public class PledgeCtl {
 
     public Pledge_Service getPledge_Service() {
         return pledge_service;
+    }
+
+    @Autowired
+    @Qualifier("pledgeValidate")
+    private Validator validator;
+
+    @InitBinder
+    public void initBinder(DataBinder binder){
+        binder.setValidator(validator);
     }
 
   public PledgeCtl()
@@ -44,11 +61,14 @@ public class PledgeCtl {
     }
 
     @PostMapping("/Pledge/getOne")
-    public String addOne(@ModelAttribute PledgeEnt pleage_entity, Model model)
+    public String addOne(@Valid @ModelAttribute("pleage_entity") PledgeEnt pleage_entity, BindingResult result, Model model)
     {
         System.out.println("post call");
         model.addAttribute("pleage_entity", pleage_entity);
-        TransferClient.transfer(model);
+        if(!result.hasErrors()) {
+            //TransferClient.transfer(model);
+            System.out.println("call TransferClient.transfer");
+        }
         return "Pledge/PledgeOne";
     }
 

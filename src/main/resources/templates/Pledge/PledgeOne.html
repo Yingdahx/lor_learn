@@ -103,6 +103,10 @@
                                     </div>
                                     <div class="col-lg-5">
                                         <input class="form-control" name="Amount"  th:field="*{Amount}">
+                                        <div th:if="${#fields.hasErrors('Amount')}" th:errors="*{Amount}" class="alert alert-danger">
+                                            <p>must be 0 </p>
+                                        </div>
+
                                     </div>
 
                                     <div class="col-lg-3">
