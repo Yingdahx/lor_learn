@@ -154,7 +154,7 @@
                             <div class="col-lg-7">
                                 <select class="form-control select2" name="currency" id="currency">
                                     <option disabled selected value></option>
-                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency.ccyflag}" th:text="${currency.flagtext}"></option>
+                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency.ccyid}" th:text="${currency.ccytext}"></option>
                                 </select>
                             </div>
                         </div>

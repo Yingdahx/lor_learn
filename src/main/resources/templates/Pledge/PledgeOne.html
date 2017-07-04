@@ -18,7 +18,7 @@
     <link th:href="@{/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet">
 
     <!-- Custom CSS -->
-   <!-- <link href="{@/dist/css/sb-admin-2.css}" rel="stylesheet"> -->
+   <link th:href="@{/dist/css/sb-admin-2.css}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
@@ -35,10 +35,10 @@
 <body>
 
 <div id="wrapper">
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="margin-left: 0px;">
         <div class="row">
             <div class="col-lg-12">
-                <h4 class="page-header">质押信息</h4>
+                <h1 class="page-header">质押信息</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -54,21 +54,21 @@
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>额度号：</label>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-9">
                                         <input class="form-control" name="line_no" th:field="*{line_no}" >
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>质押物种类：</label>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-9">
                                         <select id="model1" class="form-control" selected="" ame="Mode1" th:field="*{Mode1}" >
                                             <option value="0">-</option>
                                             <option value="1">应收账款质押</option>
@@ -89,11 +89,11 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
-                                      <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                      <div class="col-lg-3">
                                         <label>质押金额：</label>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <select class="form-control" selected="" name="AmountCCY" th:field="*{AmountCCY}" >
                                             <option value="0">-</option>
                                             <option value="1">RMB</option>
@@ -101,14 +101,17 @@
                                             <option value="3">USD</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-5">
                                         <input class="form-control" name="Amount"  th:field="*{Amount}">
+                                        <div th:if="${#fields.hasErrors('Amount')}" th:errors="*{Amount}" class="alert alert-danger">
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <label>质押物价值：</label>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <select class="form-control" selected="" name="ValueCCY" th:field="*{ValueCCY}">
                                             <option value="0">-</option>
                                             <option value="1">RMB</option>
@@ -116,34 +119,34 @@
                                             <option value="3">USD</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-5">
                                         <input class="form-control"  name="Value"  th:field="*{Value}">
                                     </div>
                             </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>质押合同编号：</label>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-9">
                                         <input class="form-control" name="ContractNumber" th:field="*{ContractNumber}">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>质押合同签订日期：</label>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-9">
                                         <input class="form-control" name="SignedDate" th:field="*{SignedDate}">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>质押物名称：</label>
                                     </div>
                                     <div class="col-lg-4">
@@ -153,7 +156,7 @@
                                     <div class="col-lg-2">
                                         <label>权属情况：</label>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <select class="form-control" selected="" name="BankPledgeOwnerType" th:field="*{BankPledgeOwnerType}" >
                                             <option value="0">公有</option>
                                             <option value="1">自有</option>
@@ -163,8 +166,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>质押生效日：</label>
                                     </div>
                                     <div class="col-lg-4">
@@ -174,7 +177,7 @@
                                     <div class="col-lg-2">
                                         <label>质押到期日：</label>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <input class="form-control" name="BankPledgeLastDate" th:field="*{BankPledgeLastDate}">
                                     </div>
                                 </div>
@@ -191,19 +194,19 @@
                     <div id="collapseTwo" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>贷款卡编码：</label>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-9">
                                         <input class="form-control"　name="Ethnic" th:field="*{Ethnic}">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>证件类型：</label>
                                     </div>
                                     <div class="col-lg-4">
@@ -215,15 +218,15 @@
                                     <div class="col-lg-2">
                                         <label>证件号码：</label>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <input class="form-control" name="pIdNo" th:field="*{pIdNo}">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>抵押/质押 人名称：</label>
                                     </div>
                                     <div class="col-lg-4">
@@ -233,18 +236,18 @@
                                     <div class="col-lg-2">
                                         <label>联系地址：</label>
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <input class="form-control" name="ContactAddress"　th:field="*{ContactAddress}">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="col-lg-4">
+                                <div class="col-lg-9">
+                                    <div class="col-lg-3">
                                         <label>联系电话：</label>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-9">
                                         <input class="form-control" name="ContactPhone"　th:field="*{ContactPhone}">
                                     </div>
                                 </div>

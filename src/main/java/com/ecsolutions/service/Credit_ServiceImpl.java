@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,6 +20,11 @@ public class Credit_ServiceImpl implements  Credit_Service {
     @Autowired
     public Credit_ServiceImpl(Credit_DAO credit_dao) {
         this.credit_dao = credit_dao;
+    }
+
+    @Override
+    public List<Credit_Entity> getCreditInfoList(String customerCode){
+        return credit_dao.getCreditInfoList(customerCode);
     }
 
     @Override
