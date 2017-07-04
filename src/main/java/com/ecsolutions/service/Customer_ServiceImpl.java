@@ -34,6 +34,8 @@ public class Customer_ServiceImpl implements  Customer_Service {
         List<HashMap<String,String>> CcyList=customer_dao.getCcy();
         List<HashMap<String,String>> XueLiList=customer_dao.getXueli();
         List<HashMap<String,String>> XueWeiList=customer_dao.getXueWei();
+        List<HashMap<String,String>> GuoJiaList=customer_dao.getGuoJia();
+        List<HashMap<String,String>> ShengShiList=customer_dao.getShengShi();
         System.out.println("getid success");
 //        List<HashMap<String,String>> lineGradeList = credit_dao.getLineGradeList();
 //        List<HashMap<String,String>> currencyList = credit_dao.getCurrencyList();
@@ -52,6 +54,8 @@ public class Customer_ServiceImpl implements  Customer_Service {
         result.setCcyList(CcyList);
         result.setXueLiList(XueLiList);
         result.setXueWeiList(XueWeiList);
+        result.setGuoJiaList(GuoJiaList);
+        result.setShengShiList(ShengShiList);
         System.out.println("okkkk");
         return result;
     }

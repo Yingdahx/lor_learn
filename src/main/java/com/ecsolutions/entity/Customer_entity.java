@@ -117,6 +117,24 @@ public class Customer_entity {
     List<HashMap<String,String>> CcyList;
     List<HashMap<String,String>> XueLiList;
     List<HashMap<String,String>> XueWeiList;
+    List<HashMap<String,String>> GuoJiaList;
+    List<HashMap<String,String>> ShengShiList;
+
+    public List<HashMap<String, String>> getShengShiList() {
+        return ShengShiList;
+    }
+
+    public void setShengShiList(List<HashMap<String, String>> shengShiList) {
+        ShengShiList = shengShiList;
+    }
+
+    public List<HashMap<String, String>> getGuoJiaList() {
+        return GuoJiaList;
+    }
+
+    public void setGuoJiaList(List<HashMap<String, String>> guoJiaList) {
+        GuoJiaList = guoJiaList;
+    }
 
     public List<HashMap<String, String>> getMaritalStatusList() {
         return MaritalStatusList;

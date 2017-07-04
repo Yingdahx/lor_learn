@@ -57,6 +57,17 @@ public interface Customer_DAO {
     @Select("select distinct TypeId,name from dbo.highestDegreeText where localeid=1")
     @ResultType(HashMap.class)
     List<HashMap<String,String>> getXueWei();
+
+    //select 国家
+    @Select("select distinct code,name from adsuser.countryText where localeid=1")
+    @ResultType(HashMap.class)
+    List<HashMap<String,String>> getGuoJia();
+
+    //select 省市
+    @Select("select distinct cityid,name from adsuser.cityText where localeid=1")
+    @ResultType(HashMap.class)
+    List<HashMap<String,String>> getShengShi();
+
 //    @Select("SELECT DISTINCT  FROM  )")
 //    @ResultType(String.class)
 //    List<String> getFinancingList();
