@@ -1,7 +1,9 @@
 package com.ecsolutions.controller;
 
 import com.ecsolutions.Validators.PledgeValidate;
+import com.ecsolutions.entity.PIDTypeTextEnt;
 import com.ecsolutions.entity.PledgeEnt;
+import com.ecsolutions.service.PIDTypeText_Server;
 import com.ecsolutions.service.Pledge_Service;
 import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by tim on 2017/6/27.
@@ -30,6 +33,14 @@ public class PledgeCtl {
 
     public Pledge_Service getPledge_Service() {
         return pledge_service;
+    }
+
+    @Autowired
+    private PIDTypeText_Server  pIDTypeText_service;
+
+
+    public PIDTypeText_Server getPIDTypeText_Server() {
+        return pIDTypeText_service;
     }
 
     @Autowired
@@ -56,7 +67,8 @@ public class PledgeCtl {
         java.util.Random r=new java.util.Random();
         ent.setID(String.valueOf(r.nextInt()));
         model.addAttribute("pleage_entity", ent);
-
+        List<PIDTypeTextEnt> tmpLiet=pIDTypeText_service.getList();
+        model.addAttribute("pIDTypeText_entity", tmpLiet);
         return "Pledge/PledgeOne";
     }
 
@@ -67,7 +79,7 @@ public class PledgeCtl {
         model.addAttribute("pleage_entity", pleage_entity);
         if(!result.hasErrors()) {
             System.out.println("call TransferClient.transfer");
-            TransferClient.transfer(model);
+           TransferClient.transfer(model);
 
         }
 
