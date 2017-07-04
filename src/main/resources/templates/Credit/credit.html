@@ -52,7 +52,7 @@
                 <h1 class="page-header">授信</h1>
             </div>
             <!-- /.col-lg-12 -->
-            <form role="form" action="/credit/save" method="post" onSubmit="return check()">
+            <form role="form" action="/creditOne/save"  method="post" onSubmit="return check()">
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="form-group">
@@ -154,7 +154,7 @@
                             <div class="col-lg-7">
                                 <select class="form-control select2" name="currency" id="currency">
                                     <option disabled selected value></option>
-                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency.ccyflag}" th:text="${currency.flagtext}"></option>
+                                    <option th:each="currency:${credit_info.currencyList}" th:value="${currency.ccyid}" th:text="${currency.ccytext}"></option>
                                 </select>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" class="form-control pull-right datepicker"  name="createDate" id="createDate">
+                                    <input type="date" class="form-control pull-right datepicker" name="createDate" id="createDate">
                                 </div>
                             </div>
                         </div>
@@ -337,7 +337,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" class="form-control pull-right datepicker"  name="dueDate" id="dueDate">
+                                    <input type="date" class="form-control pull-right datepicker" name="dueDate" id="dueDate">
                                 </div>
                             </div>
                         </div>

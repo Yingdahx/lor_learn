@@ -1,11 +1,10 @@
 package com.ecsolutions.service;
 
-import com.ecsolutions.dao.Credit_DAO;
-import com.ecsolutions.entity.Credit_Entity;
+import com.ecsolutions.dao.Customer_DAO;
+import com.ecsolutions.entity.Customer_entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,54 +12,57 @@ import java.util.List;
  * Created by Administrator on 2017/6/28.
  */
 
-@Service("Credit_Service")
-public class Credit_ServiceImpl implements  Credit_Service {
-    private Credit_DAO credit_dao;
+@Service("Customer_Service")
+public class Customer_ServiceImpl implements  Customer_Service {
+    private Customer_DAO customer_dao;
 
     @Autowired
-    public Credit_ServiceImpl(Credit_DAO credit_dao) {
-        this.credit_dao = credit_dao;
+    public Customer_ServiceImpl(Customer_DAO customer_dao) {
+        this.customer_dao= customer_dao;
     }
 
     @Override
-    public List<Credit_Entity> getCreditInfoList(String customerCode){
-        return credit_dao.getCreditInfoList(customerCode);
-    }
-
-    @Override
-    public Credit_Entity getPopupInfo(){
-        Credit_Entity result = new Credit_Entity();
-        List<HashMap<String,String>> lineGradeList = credit_dao.getLineGradeList();
-        List<HashMap<String,String>> currencyList = credit_dao.getCurrencyList();
-        List<HashMap<String,String>> documentMarkList = credit_dao.getDocumentMarkList();
-        List<HashMap<String,String>> countryRiskList = credit_dao.getCountryRiskList();
-        result.setLineGradeList(lineGradeList);
-        result.setCurrencyList(currencyList);
-        result.setDocumentMarkList(documentMarkList);
-        result.setCountryRiskList(countryRiskList);
+    public Customer_entity getPopupInfo(){
+        Customer_entity result = new Customer_entity();
+        System.out.println("begin qian");
+        List<HashMap<String,String>> idTypeList = customer_dao.getIdType();
+        List<HashMap<String,String>> MaritalStatusList=customer_dao.getMaritalStatus();
+        List<HashMap<String,String>> JuzhuStatusList=customer_dao.getJuzhuStatus();
+        List<HashMap<String,String>> ZhiYeList=customer_dao.getZhiye();
+        List<HashMap<String,String>> ZhiWuList=customer_dao.getZhiWu();
+        List<HashMap<String,String>> ZhiChenList=customer_dao.getZhiChen();
+        List<HashMap<String,String>> CcyList=customer_dao.getCcy();
+        List<HashMap<String,String>> XueLiList=customer_dao.getXueli();
+        List<HashMap<String,String>> XueWeiList=customer_dao.getXueWei();
+        System.out.println("getid success");
+//        List<HashMap<String,String>> lineGradeList = credit_dao.getLineGradeList();
+//        List<HashMap<String,String>> currencyList = credit_dao.getCurrencyList();
+//        List<HashMap<String,String>> documentMarkList = credit_dao.getDocumentMarkList();
+//        List<HashMap<String,String>> countryRiskList = credit_dao.getCountryRiskList();
+//        result.setLineGradeList(lineGradeList);
+//        result.setCurrencyList(currencyList);
+//        result.setDocumentMarkList(documentMarkList);
+//        result.setCountryRiskList(countryRiskList);
+        result.setIdTypeList(idTypeList);
+        result.setMaritalStatusList(MaritalStatusList);
+        result.setJuzhuStatusList(JuzhuStatusList);
+        result.setZhiYeList(ZhiYeList);
+        result.setZhiWuList(ZhiWuList);
+        result.setZhiChenList(ZhiChenList);
+        result.setCcyList(CcyList);
+        result.setXueLiList(XueLiList);
+        result.setXueWeiList(XueWeiList);
+        System.out.println("okkkk");
         return result;
     }
 
-    @Override
-    public Credit_Entity getNewCreditInfo(String customerCode){
-        Credit_Entity result = getPopupInfo();
-        String lineNo = "00001";
-        List<String> lineNumberList = credit_dao.getLineNumberList(customerCode);
-        if (lineNumberList != null && lineNumberList.size() > 0){
-            lineNo = calculateLineNo(lineNumberList.get(lineNumberList.size() - 1));
-        }
-        result.setLineNumber(lineNo);
-        result.setLineStatus("等候");
-        result.setUsedLineAmount(new BigDecimal(0.00));
-        result.setFreezingLineAmount(new BigDecimal(0.00));
-        return result;
-    }
 
-    @Override
-    public Credit_Entity getOldCreditInfo(String customerCode, String lineNo){
-        Credit_Entity result = new Credit_Entity();
-        return result;
-    }
+
+//    @Override
+//    public Credit_Entity getOldCreditInfo(String customerCode, String lineNo){
+//        Credit_Entity result = new Credit_Entity();
+//        return result;
+//    }
 
     private String calculateLineNo(String lineNo){
         String newLineNo = "";
