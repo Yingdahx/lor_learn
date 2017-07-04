@@ -169,8 +169,9 @@
                                             <label>国籍：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{nationality}" name="nationality" required>
-                                                <option value="">-</option>
+                                            <select class="form-control" selected=""  name="nationality" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="nationality:${customer_info.GuoJiaList}" th:value="${nationality.code}" th:text="${nationality.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -187,7 +188,14 @@
                                             <label>性别：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{sex}" name="sex" required maxlength="2">
+                                            <select class="form-control" selected="" th:field="*{sex}"name="sex" required maxlength="2">
+                                                <option value=""></option>
+                                                <option value="">未知的性别</option>
+                                                <option value="">男</option>
+                                                <option value="">女</option>
+                                                <option value="">未说明的性别</option>
+                                            </select>
+
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -222,7 +230,9 @@
                                         </div>
                                         <div class="col-lg-8">
                                             <select class="form-control" selected="" th:field="*{juminFlag}" name="juminFlag" required>
-                                                <option value="">-</option>
+                                                <option value=""></option>
+                                                <option value="">是</option>
+                                                <option value="">否</option>
                                             </select>
                                         </div>
                                     </div>
@@ -632,8 +642,9 @@
                                         <label>国家/地区：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" th:field="*{txdz_country}" name="txdz_country" required>
-                                            <option value="">-</option>
+                                        <select class="form-control" selected=""  name="txdz_country" required>
+                                            <option disabled selected value></option>
+                                            <option th:each="txdz_country:${customer_info.GuoJiaList}" th:value="${txdz_country.code}" th:text="${txdz_country.name}"></option>
                                         </select>
                                     </div>
                                 </div>
@@ -644,8 +655,9 @@
                                         <label>省/市：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select class="form-control" selected="" th:field="*{txdz_ss}" name="txdz_ss" required>
-                                            <option value="">-</option>
+                                        <select class="form-control" selected=""  name="txdz_ss" required>
+                                            <option disabled selected value></option>
+                                            <option th:each="txdz_ss:${customer_info.ShengShiList}" th:value="${txdz_ss.cityid}" th:text="${txdz_ss.name}"></option>
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
@@ -715,8 +727,9 @@
                                         <label>国家/地区：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <select class="form-control" selected="" th:field="*{hjdz_country}" name="hjdz_country" required>
-                                            <option value="">-</option>
+                                        <select class="form-control" selected=""  name="hjdz_country" required>
+                                            <option disabled selected value></option>
+                                            <option th:each="hjdz_country:${customer_info.GuoJiaList}" th:value="${hjdz_country.code}" th:text="${hjdz_country.name}"></option>
                                         </select>
                                     </div>
                                 </div>
@@ -727,8 +740,9 @@
                                         <label>省/市：</label>
                                     </div>
                                     <div class="col-lg-4">
-                                        <select class="form-control" selected="" th:field="*{hjdz_ss}" name="hjdz_ss" required>
-                                            <option value="">-</option>
+                                        <select class="form-control" selected=""  name="hjdz_ss" required>
+                                            <option disabled selected value></option>
+                                            <option th:each="hjdz_ss:${customer_info.ShengShiList}" th:value="${hjdz_ss.cityid}" th:text="${hjdz_ss.name}"></option>
                                         </select>
                                     </div>
                                     <div class="col-lg-4">
@@ -784,8 +798,9 @@
                                             <label>国家/地区：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{dwdz_country}" name="dwdz_country" required>
-                                                <option value="">-</option>
+                                            <select class="form-control" selected=""  name="dwdz_country" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="dwdz_country:${customer_info.GuoJiaList}" th:value="${dwdz_country.code}" th:text="${dwdz_country.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -796,8 +811,9 @@
                                             <label>省/市：</label>
                                         </div>
                                         <div class="col-lg-4">
-                                            <select class="form-control" selected="" th:field="*{dwdz_ss}" name="dwdz_ss" required>
-                                                <option value="">-</option>
+                                            <select class="form-control" selected=""  name="dwdz_ss" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="dwdz_ss:${customer_info.ShengShiList}" th:value="${dwdz_ss.cityid}" th:text="${dwdz_ss.name}"></option>
                                             </select>
                                         </div>
                                         <div class="col-lg-4">
@@ -857,8 +873,9 @@
                                             <label>国家/地区：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <select class="form-control" selected="" th:field="*{jzdz_country}" name="jzdz_country" required>
-                                                <option value="">-</option>
+                                            <select class="form-control" selected=""  name="jzdz_country" required>
+                                                <option disabled selected value></option>
+                                                <option th:each="jzdz_country:${customer_info.GuoJiaList}" th:value="${jzdz_country.code}" th:text="${jzdz_country.name}"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -870,7 +887,8 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <select class="form-control" selected="" th:field="*{jzdz_ss}" name="jzdz_ss" required>
-                                                <option value="">-</option>
+                                                <option disabled selected value></option>
+                                                <option th:each="jzdz_ss:${customer_info.ShengShiList}" th:value="${jzdz_ss.cityid}" th:text="${jzdz_ss.name}"></option>
                                             </select>
                                         </div>
                                         <div class="col-lg-4">
