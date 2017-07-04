@@ -180,7 +180,13 @@
                                             <label>出生日期：</label>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input class="form-control" th:field="*{birthday}" name="birthday" required>
+                                            <!--<input class="form-control" th:field="*{birthday}" name="birthday" required> -->
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="date" class="form-control pull-right datepicker" th:field="*{birthday}" name="birthday" id="birthday">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -566,7 +572,13 @@
                                         <label>投资日期：</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input class="form-control" th:field="*{qtxx_tzrq}" name="qtxx_tzrq">
+                                        <!--<input class="form-control" th:field="*{qtxx_tzrq}" name="qtxx_tzrq">-->
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="date" class="form-control pull-right datepicker" th:field="*{qtxx_tzrq}" name="qtxx_tzrq" id="qtxx_tzrq">
+                                        </div>
                                     </div>
                                 </div>
 
