@@ -15,8 +15,10 @@ public class PledgeValidate implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
+
         PledgeEnt userForm = (PledgeEnt) target;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "Amount", "amountrequired","more then 0");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "Amount", "amountrequired", "必须大于0");
+
     }
 
     @Override

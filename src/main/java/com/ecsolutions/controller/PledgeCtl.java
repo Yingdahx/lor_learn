@@ -66,9 +66,11 @@ public class PledgeCtl {
         System.out.println("post call");
         model.addAttribute("pleage_entity", pleage_entity);
         if(!result.hasErrors()) {
-            //TransferClient.transfer(model);
             System.out.println("call TransferClient.transfer");
+            TransferClient.transfer(model);
+
         }
+
         return "Pledge/PledgeOne";
     }
 
