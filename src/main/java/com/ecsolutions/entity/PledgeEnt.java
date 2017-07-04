@@ -115,7 +115,7 @@ public class PledgeEnt extends BaseEnt {
     private String AccRecProvePerson              ;
     private String AccRecOwner                    ;
     private String AccRecAmountCCY                ;
-    private String AccRecAmount                   ;
+    private Integer AccRecAmount;
     private String CarProvePerson                 ;
     private String CarProduction                  ;
     private String CarNo                          ;
@@ -247,7 +247,7 @@ public class PledgeEnt extends BaseEnt {
     public String   getAccRecProvePerson         (){  return   AccRecProvePerson           ;}
     public String   getAccRecOwner               (){  return   AccRecOwner                 ;}
     public String   getAccRecAmountCCY           (){  return   AccRecAmountCCY             ;}
-    public String   getAccRecAmount              (){  return   AccRecAmount                ;}
+    public Integer   getAccRecAmount              (){  return   AccRecAmount;}
     public String   getCarProvePerson            (){  return   CarProvePerson              ;}
     public String   getCarProduction             (){  return   CarProduction               ;}
     public String   getCarNo                     (){  return   CarNo                       ;}
@@ -379,7 +379,7 @@ public class PledgeEnt extends BaseEnt {
     public void  setAccRecProvePerson         (String  tmpAccRecProvePerson         ){    AccRecProvePerson         =tmpAccRecProvePerson         ;}
     public void  setAccRecOwner               (String  tmpAccRecOwner               ){    AccRecOwner               =tmpAccRecOwner               ;}
     public void  setAccRecAmountCCY           (String  tmpAccRecAmountCCY           ){    AccRecAmountCCY           =tmpAccRecAmountCCY           ;}
-    public void  setAccRecAmount              (String  tmpAccRecAmount              ){    AccRecAmount              =tmpAccRecAmount              ;}
+    public void  setAccRecAmount              (Integer  tmpAccRecAmount              ){    AccRecAmount=tmpAccRecAmount              ;}
     public void  setCarProvePerson            (String  tmpCarProvePerson            ){    CarProvePerson            =tmpCarProvePerson            ;}
     public void  setCarProduction             (String  tmpCarProduction             ){    CarProduction             =tmpCarProduction             ;}
     public void  setCarNo                     (String  tmpCarNo                     ){    CarNo                     =tmpCarNo                     ;}

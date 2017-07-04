@@ -1,5 +1,8 @@
 package com.ecsolutions.entity;
 
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/6/28.
  */
@@ -103,6 +106,107 @@ public class Customer_entity {
     private String jzdz_dz2;
     private String jzdz_dz3;
     private String jzdz_yb;
+
+    //popup
+    List<HashMap<String,String>> idTypeList;
+    List<HashMap<String,String>> MaritalStatusList;
+    List<HashMap<String,String>> JuzhuStatusList;
+    List<HashMap<String,String>> ZhiYeList;
+    List<HashMap<String,String>> ZhiWuList;
+    List<HashMap<String,String>> ZhiChenList;
+    List<HashMap<String,String>> CcyList;
+    List<HashMap<String,String>> XueLiList;
+    List<HashMap<String,String>> XueWeiList;
+    List<HashMap<String,String>> GuoJiaList;
+    List<HashMap<String,String>> ShengShiList;
+
+    public List<HashMap<String, String>> getShengShiList() {
+        return ShengShiList;
+    }
+
+    public void setShengShiList(List<HashMap<String, String>> shengShiList) {
+        ShengShiList = shengShiList;
+    }
+
+    public List<HashMap<String, String>> getGuoJiaList() {
+        return GuoJiaList;
+    }
+
+    public void setGuoJiaList(List<HashMap<String, String>> guoJiaList) {
+        GuoJiaList = guoJiaList;
+    }
+
+    public List<HashMap<String, String>> getMaritalStatusList() {
+        return MaritalStatusList;
+    }
+
+    public void setMaritalStatusList(List<HashMap<String, String>> maritalStatusList) {
+        MaritalStatusList = maritalStatusList;
+    }
+
+    public List<HashMap<String, String>> getJuzhuStatusList() {
+        return JuzhuStatusList;
+    }
+
+    public void setJuzhuStatusList(List<HashMap<String, String>> juzhuStatusList) {
+        JuzhuStatusList = juzhuStatusList;
+    }
+
+    public List<HashMap<String, String>> getZhiYeList() {
+        return ZhiYeList;
+    }
+
+    public void setZhiYeList(List<HashMap<String, String>> zhiYeList) {
+        ZhiYeList = zhiYeList;
+    }
+
+    public List<HashMap<String, String>> getZhiWuList() {
+        return ZhiWuList;
+    }
+
+    public void setZhiWuList(List<HashMap<String, String>> zhiWuList) {
+        ZhiWuList = zhiWuList;
+    }
+
+    public List<HashMap<String, String>> getZhiChenList() {
+        return ZhiChenList;
+    }
+
+    public void setZhiChenList(List<HashMap<String, String>> zhiChenList) {
+        ZhiChenList = zhiChenList;
+    }
+
+    public List<HashMap<String, String>> getCcyList() {
+        return CcyList;
+    }
+
+    public void setCcyList(List<HashMap<String, String>> ccyList) {
+        CcyList = ccyList;
+    }
+
+    public List<HashMap<String, String>> getXueLiList() {
+        return XueLiList;
+    }
+
+    public void setXueLiList(List<HashMap<String, String>> xueLiList) {
+        XueLiList = xueLiList;
+    }
+
+    public List<HashMap<String, String>> getXueWeiList() {
+        return XueWeiList;
+    }
+
+    public void setXueWeiList(List<HashMap<String, String>> xueWeiList) {
+        XueWeiList = xueWeiList;
+    }
+
+    public List<HashMap<String, String>> getIdTypeList() {
+        return idTypeList;
+    }
+
+    public void setIdTypeList(List<HashMap<String, String>> idTypeList) {
+        this.idTypeList = idTypeList;
+    }
 
     public String getQtxx_tzje2() {
         return qtxx_tzje2;
