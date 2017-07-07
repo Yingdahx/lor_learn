@@ -1,14 +1,11 @@
 package com.ecsolutions.soaClient;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.rpc.client.RPCServiceClient;
 import org.apache.log4j.Logger;
-import org.springframework.ui.Model;
 
 import javax.xml.namespace.QName;
-import java.io.StringWriter;
 import java.util.Date;
 
 
@@ -41,8 +38,8 @@ public class TransferClient {
                 popupWebServiceAddress += "/";
             }
             String address ="http://localhost:8001/WebServiceProject/services/Transfer"; //"http://localhost:8001/WebServiceProject/services/Transfer?wsdl"; //popupWebServiceAddress + "OCRService?wsdl";
-            //address="http://192.1.6.34:8080/WebServiceProject/services/Transfer";
-            address="http://192.168.0.224:8001/WebServiceProject/services/Transfer";
+            address="http://192.1.6.34:8080/WebServiceProject/services/Transfer";
+//            address="http://192.168.0.224:8001/WebServiceProject/services/Transfer";
             EndpointReference epr = new EndpointReference(address);
             options.setTo(epr);
             QName qname = new QName(popupWebServiceDefaultNameSpace, "transferData");

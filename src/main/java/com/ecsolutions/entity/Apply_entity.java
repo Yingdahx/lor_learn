@@ -12,6 +12,93 @@ public class Apply_entity {
 
     //注册登记信息
     private String registerType;
+    private String registerCode = "000001";
+    private String registerDate = "20170504";
+    private String bussinessLicenseExpireDate = "20180504";
+
+    //贷款卡信息
+    private String loanCardCode = "000001";
+    private String loanCardState = "20170504";
+    private String loanCardPassword = "password";
+
+    //基本情况
+    private String borrowerCountry;
+    private String chineseName = "张三";
+    private String englishName = "San Zhang";
+    private String accountOpeningLicenseApprovalNumber = "001";
+    private String customerType;
+    private String organizationCodeCertificate = "001";
+    private String borrowerProperty;
+    private String agencyCreditCode = "001";
+    private String organizationTypeSubdivision;
+    private String establishmentYear = "20170504";
+    private String legalRepresentative = "张三";
+    private String businessScope = "银行";
+    private String majorProductSituation = "xxx";
+    private String nationalTaxRegistrationNumber = "001";
+    private String regionalTaxRegistrationNumber = "002";
+    private String administrativeRegion = "shanghai";
+    private String borrowerCharacteristics;
+    private String industrialClass;
+    private String industrialPrimaryCategory = "23";
+    private String industrialSecondaryCategory = "03";
+    private String registeredCapitalCurrency;
+    private String registeredCapitalAmount = "999";
+    private String paidinCapitalCurrency;
+    private String paidinCapitalAmount = "999";
+    private String employeeNumber = "001";
+    private String operatingArea;
+    private String operatingAreaOwnership;
+    private String importExportFlag;
+    private String listedCompanyFlag;
+    private String stockCode;
+    private String listingLocation;
+    private String groupCustomerFlag;
+    private String superiorCompanyName;
+    private String superiorCompanyAgencyCreditCode;
+    private String superiorCompanyLoanCardCode;
+    private String superiorCompanyOrganizationCode;
+    private String superiorCompanyRegisterCodeType;
+    private String superiorCompanyRegisterCode;
+
+    //其他信息
+    private String organizationState;
+    private String riskRanking;
+    private String financeDepartmentContactInformation = "000000000";
+    private String ourShareholders;
+    private String equityCardNumber;
+    private String investmentDate;
+    private String investmentCurrency;
+    private String investmentAmount;
+    private String investmentRatio;
+    private String investmentWay;
+    private String remarks;
+
+    //注册地址
+    private String registerNationality;
+    private String registerProvince;
+    private String registerAddress = "xxxxxxxxxx";
+
+    //通讯地址
+    private String contactNationality;
+    private String contactProvince;
+    private String contactAddress = "xxxxx";
+    private String mailcode = "097542";
+
+    //联系信息
+    private String borrowerPhone = "1930474526";
+    private String fax = "91383653";
+    private String email = "example@email.com";
+    private String website = "www.zhangsna.com";
+
+    /*private String individualCompanyFlag = "企业";
+    private boolean foreign;
+    private String branch;
+    private String customerCode;
+    private String customerManager;
+
+    //注册登记信息
+    private String registerType;
     private String registerCode;
     private String registerDate;
     private String bussinessLicenseExpireDate;
@@ -89,7 +176,7 @@ public class Apply_entity {
     private String borrowerPhone;
     private String fax;
     private String email;
-    private String website;
+    private String website;*/
 
 
     public String getIndividualCompanyFlag() {

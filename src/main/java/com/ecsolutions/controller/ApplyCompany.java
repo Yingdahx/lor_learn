@@ -1,11 +1,13 @@
 package com.ecsolutions.controller;
 
+import com.ecsolutions.common.ObjectHelp;
 import com.ecsolutions.entity.Apply_entity;
 import com.ecsolutions.service.ApplyCompany_Service;
 import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,9 +67,15 @@ public class ApplyCompany {
     }
 
     @PostMapping("/apply")
-    public String saveApplyInfo(@ModelAttribute Apply_entity apply_entity, Model model) {
+    public String saveApplyInfo(@ModelAttribute Apply_entity apply_entity, BindingResult result, Model model) {
         model.addAttribute("apply_entity", apply_entity);
         //TransferClient.transfer(model);
+        if(!result.hasErrors()) {
+            System.out.println("call TransferClient.transfer");
+
+            String mess= ObjectHelp.InitTransferData("ApplyCompanyTx",apply_entity);
+            TransferClient.transfer(mess);
+        }
         return "applyCompany";
     }
 }

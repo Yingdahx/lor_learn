@@ -1,7 +1,8 @@
 package com.ecsolutions.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.simple.JSONObject;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import java.io.StringWriter;
 
@@ -28,10 +29,15 @@ public class ObjectHelp {
     public static <T>  String InitTransferData(String className,T tmpKbj)
     {
         JSONObject main=new JSONObject();
-        main.put("className", className);
-        //main.put("transferData", pleage_entity);
-        String message= ObjectToJsonStr(tmpKbj);
-        main.put("transferData", message);
+        try {
+            main.put("className", className);
+            //main.put("transferData", pleage_entity);
+            String message= ObjectToJsonStr(tmpKbj);
+            main.put("transferData", message);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         return main.toString();
     }
 }

@@ -1,13 +1,11 @@
 package com.ecsolutions.controller;
 
-import com.ecsolutions.Validators.PledgeValidate;
 import com.ecsolutions.common.ObjectHelp;
 import com.ecsolutions.entity.PIDTypeTextEnt;
 import com.ecsolutions.entity.PledgeEnt;
 import com.ecsolutions.service.PIDTypeText_Server;
 import com.ecsolutions.service.Pledge_Service;
 import com.ecsolutions.soaClient.TransferClient;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,13 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import org.json.simple.JSONObject;
-
 import javax.validation.Valid;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
