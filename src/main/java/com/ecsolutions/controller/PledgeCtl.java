@@ -8,6 +8,7 @@ import com.ecsolutions.service.Pledge_Service;
 import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,6 +39,8 @@ public class PledgeCtl {
     @Autowired
     private PIDTypeText_Server  pIDTypeText_service;
 
+    @Autowired
+    private TransferClient client;
 
     public PIDTypeText_Server getPIDTypeText_Server() {
         return pIDTypeText_service;
@@ -46,6 +49,9 @@ public class PledgeCtl {
     @Autowired
     @Qualifier("pledgeValidate")
     private Validator validator;
+
+    @Value("${lor.soaserver.url}")
+    private String soaUrl;
 
     @InitBinder
     public void initBinder(DataBinder binder){
@@ -81,7 +87,10 @@ public class PledgeCtl {
             System.out.println("call TransferClient.transfer");
 
             String mess=ObjectHelp.InitTransferData("PledgeTx",pleage_entity);
-           TransferClient.transfer(mess);
+           //TransferClient.transfer(mess);
+            String tmpUrl=soaUrl;
+            //TransferClient client=new TransferClient();
+            client.transfer(mess);
         }
         return "Pledge/PledgeOne";
     }

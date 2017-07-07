@@ -74,7 +74,8 @@ public class ApplyCompany {
             System.out.println("call TransferClient.transfer");
 
             String mess= ObjectHelp.InitTransferData("ApplyCompanyTx",apply_entity);
-            TransferClient.transfer(mess);
+            TransferClient client=new TransferClient();
+            client.transfer(mess);
         }
         return "applyCompany";
     }

@@ -3,7 +3,6 @@ package com.ecsolutions.controller;
 import com.ecsolutions.entity.UsageInfo_Get_Entity;
 import com.ecsolutions.entity.UsageInfo_Save_Entity;
 import com.ecsolutions.service.UsageInfo_Service;
-import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

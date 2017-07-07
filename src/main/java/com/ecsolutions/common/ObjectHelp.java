@@ -3,6 +3,9 @@ package com.ecsolutions.common;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 import java.io.StringWriter;
 

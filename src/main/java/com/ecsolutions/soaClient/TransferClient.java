@@ -1,9 +1,12 @@
 package com.ecsolutions.soaClient;
 
+import com.ecsolutions.common.CinfigInfo;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.rpc.client.RPCServiceClient;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.xml.namespace.QName;
 import java.util.Date;
@@ -12,11 +15,17 @@ import java.util.Date;
 /**
  * Created by tim on 2017/6/30.
  */
+
+@Component
 public class TransferClient {
 
     private static Logger logger = Logger.getLogger(TransferClient.class);
 
-    public static String  transfer(String jsonMessage)
+    @Autowired
+    private CinfigInfo baseConfig;
+
+
+    public  String  transfer(String jsonMessage)
     {
         System.out.println("Test OCRService...");
 
@@ -38,8 +47,12 @@ public class TransferClient {
                 popupWebServiceAddress += "/";
             }
             String address ="http://localhost:8001/WebServiceProject/services/Transfer"; //"http://localhost:8001/WebServiceProject/services/Transfer?wsdl"; //popupWebServiceAddress + "OCRService?wsdl";
-            address="http://192.1.6.34:8080/WebServiceProject/services/Transfer";
+
+            //baseConfig=new CinfigInfo();
+           // CinfigInfo baseConfig=new CinfigInfo();
+            address=baseConfig.getSoaUrl();
 //            address="http://192.168.0.224:8001/WebServiceProject/services/Transfer";
+
             EndpointReference epr = new EndpointReference(address);
             options.setTo(epr);
             QName qname = new QName(popupWebServiceDefaultNameSpace, "transferData");

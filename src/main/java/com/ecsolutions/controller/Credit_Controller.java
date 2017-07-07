@@ -2,7 +2,6 @@ package com.ecsolutions.controller;
 
 import com.ecsolutions.entity.Credit_Entity;
 import com.ecsolutions.service.Credit_Service;
-import com.ecsolutions.soaClient.TransferClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
