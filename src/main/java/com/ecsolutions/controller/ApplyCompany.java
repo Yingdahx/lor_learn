@@ -67,7 +67,7 @@ public class ApplyCompany {
     @PostMapping("/apply")
     public String saveApplyInfo(@ModelAttribute Apply_entity apply_entity, Model model) {
         model.addAttribute("apply_entity", apply_entity);
-        TransferClient.transfer(model);
+        //TransferClient.transfer(model);
         return "applyCompany";
     }
 }

@@ -64,7 +64,7 @@ public class Credit_Controller {
 //            return "Credit/credit";
 //        }
         model.addAttribute("credit_info", credit_entity);
-        TransferClient.transfer(model);
+        //TransferClient.transfer(model);
         return "Credit/credit";
     }
 }

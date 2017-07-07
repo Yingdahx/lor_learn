@@ -35,7 +35,7 @@ public class UsageInfo {
     @PostMapping("/UsageInfo/Save")
     public String saveUsageInfo(@ModelAttribute UsageInfo_Save_Entity saveEntity,Model model){
         model.addAttribute("UsageInfo", saveEntity);
-        TransferClient.transfer(model);
+        //TransferClient.transfer(model);
         return ("Usage");
     }
 

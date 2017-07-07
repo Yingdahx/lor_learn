@@ -19,21 +19,12 @@ public class TransferClient {
 
     private static Logger logger = Logger.getLogger(TransferClient.class);
 
-    public static String  transfer(Model model)
+    public static String  transfer(String jsonMessage)
     {
         System.out.println("Test OCRService...");
-        StringWriter writer = new StringWriter();
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            mapper.writeValue(writer, model);
-        }
-        catch (Exception ee)
-        {
-            //ee.printStackTrace();
-        }
-        String message=writer.toString();
-        System.out.println("receive message;["+message+"]");
-        logger.debug(message);
+
+        System.out.println("receive message;["+jsonMessage+"]");
+        logger.debug(jsonMessage);
         String sRet="";
         Object[] results = null;
         String popupWebServiceAddress="http://192.1.10.2:7001/WXSOA/services/";
@@ -50,7 +41,8 @@ public class TransferClient {
                 popupWebServiceAddress += "/";
             }
             String address ="http://localhost:8001/WebServiceProject/services/Transfer"; //"http://localhost:8001/WebServiceProject/services/Transfer?wsdl"; //popupWebServiceAddress + "OCRService?wsdl";
-            address="http://192.1.6.34:8080/WebServiceProject/services/Transfer";
+            //address="http://192.1.6.34:8080/WebServiceProject/services/Transfer";
+            address="http://192.168.0.224:8001/WebServiceProject/services/Transfer";
             EndpointReference epr = new EndpointReference(address);
             options.setTo(epr);
             QName qname = new QName(popupWebServiceDefaultNameSpace, "transferData");
@@ -67,7 +59,7 @@ public class TransferClient {
             logger.debug("begin callWS...");
             //results = client.invokeBlocking(qname, new Object[] { strToken,strKey,strDataMaster,strDataDetail }, new Class[] { String.class,String.class,String.class,String.class });
 
-            results = client.invokeBlocking(qname, new Object[] {message}, new Class[] { String.class });
+            results = client.invokeBlocking(qname, new Object[] {jsonMessage}, new Class[] { String.class });
             logger.debug("end callWS.");
 
              sRet=results[0].toString();

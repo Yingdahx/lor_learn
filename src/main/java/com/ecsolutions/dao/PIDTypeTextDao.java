@@ -14,8 +14,8 @@ import java.util.List;
 @Repository
 public interface PIDTypeTextDao {
 
-    //@Select("SELECT * FROM dbo.PIDTypeText")
-    @Select("SELECT * FROM adsuser.PIDTypeText")
+    @Select("SELECT * FROM dbo.PIDTypeText")
+    //@Select("SELECT * FROM adsuser.PIDTypeText")
     @ResultType(PIDTypeTextEnt.class)
     List<PIDTypeTextEnt> getList();
 }
